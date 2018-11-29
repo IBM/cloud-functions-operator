@@ -20,7 +20,7 @@ ROOT=$(dirname ${BASH_SOURCE})/../..
 
 TAG=${TRAVIS_TAG:-vlatest}
 TAG=${TAG:1}
-NAME=villardl/openwhisk-operator
+NAME=ibmcom/openwhisk-operator
 
 cd $ROOT
 
@@ -28,5 +28,5 @@ echo "make docker image"
 docker build -t $NAME:$TAG -f Dockerfile .
 
 echo "push docker image"
+docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
 docker push $NAME:$TAG
-	

@@ -7,5 +7,5 @@ spec:
   template:
     spec:
       containers:
-      - image: villardl/wsk-controller
-        name: wsk-controller
+      - image: ibmcom/openwhisk-operator
+        name: openwhisk-operator
