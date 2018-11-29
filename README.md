@@ -24,5 +24,5 @@ $ kustomize build https://raw.github.com/IBM/openwhisk-operator/master/config/de
 
 # Learn more
 
-- [reference documentation](https://pages.github.com/ibm/openwhisk-operator)
+- [reference documentation](https://ibm.github.io/openwhisk-operator/)
 - [contributions](./CONTRIBUTING.md)
