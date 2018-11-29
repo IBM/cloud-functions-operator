@@ -1,0 +1,8 @@
+apiVersion: openwhisk.seed.ibm.com/v1beta1
+kind: Function
+metadata:
+  name: sequence-echo-echo-echo
+spec:
+  functions: /whisk.system/utils/echo,/whisk.system/utils/echo,/whisk.system/utils/echo
+  runtime: sequence
+  

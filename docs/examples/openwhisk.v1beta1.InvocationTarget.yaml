@@ -1,0 +1,4 @@
+secretKeyRef: 
+  name: "secret-name"
+  key: "secret-key"
+projection: "{@.response.result.message}"

@@ -1,0 +1,7 @@
+apiVersion: openwhisk.seed.ibm.com/v1beta1
+kind: Invocation
+metadata:
+  name: invoke-echo-no-args
+spec:
+  function: "/whisk.system/utils/echo"
+  

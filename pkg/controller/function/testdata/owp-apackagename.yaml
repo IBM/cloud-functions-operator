@@ -1,0 +1,5 @@
+apiVersion: openwhisk.seed.ibm.com/v1beta1
+kind: Package
+metadata:
+  name: apackagename
+ 

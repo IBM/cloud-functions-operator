@@ -1,0 +1,42 @@
+language: go
+go:
+  - "1.11.x"
+dist: trusty
+sudo: required
+services:
+  - docker
+env:
+  - IBMCLOUD_VERSION_CHECK=false KB_VERSION=1.0.5
+  
+go_import_path: github.com/ibm/openwhisk-operator
+
+before_install:
+  - if [ "${TRAVIS_PULL_REQUEST}" = "true" ]; then ./tools/travis/ow-setup.sh; fi
+  - curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh
+  - curl -SL "https://github.com/kubernetes-sigs/kubebuilder/releases/download/v${KB_VERSION}/kubebuilder_${KB_VERSION}_linux_amd64.tar.gz" | tar xz  
+  - export KUBEBUILDER_ASSETS=$TRAVIS_BUILD_DIR/kubebuilder_${KB_VERSION}_linux_amd64/bin
+  - $KUBEBUILDER_ASSETS/kubebuilder version
+  - ./tools/travis/bx-install.sh
+  
+install:
+  - go get -v github.com/onsi/ginkgo/ginkgo
+  - dep ensure -v
+  - if [ "${TRAVIS_PULL_REQUEST}" = "true" ]; then ./tools/travis/ow-build.sh && ./tools/travis/ow-deploy.sh; fi
+  
+before_script:
+  - if [ "${TRAVIS_PULL_REQUEST}" = "false" ]; then ./tools/travis/bx-setup.sh; fi
+  
+script:
+  - make test
+
+deploy:
+- provider: script
+  skip_cleanup: true
+  script: bash tools/travis/docker.sh
+  on: 
+    branch: "master"
+- provider: script
+  skip_cleanup: true
+  script: bash tools/travis/docker.sh
+  on: 
+    tags: true

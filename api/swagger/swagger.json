@@ -1,0 +1,850 @@
+{
+  "swagger": "2.0",
+  "info": {
+   "description": "Collection of Kubernetes operators for \n managing Apache Openwhisk resources, such as actions, packages, triggers and rules.",
+   "title": "Kubernetes Apache Openwhisk Operator",
+   "version": "1.0"
+  },
+  "paths": {},
+  "definitions": {
+   "keyvalue.v1.KeyValue": {
+    "description": "KeyValue represents a key-value pair",
+    "required": [
+     "name"
+    ],
+    "properties": {
+     "attributes": {
+      "description": "A parameter may have attributes (e.g. message hub topic might have partitions)",
+      "type": "object",
+      "additionalProperties": {
+       "$ref": "#/definitions/runtime.RawExtension"
+      }
+     },
+     "name": {
+      "description": "Name representing the key.",
+      "type": "string"
+     },
+     "value": {
+      "description": "Defaults to null.",
+      "$ref": "#/definitions/runtime.RawExtension"
+     },
+     "valueFrom": {
+      "description": "Source for the value. Cannot be used if value is not empty.",
+      "$ref": "#/definitions/keyvalue.v1.KeyValueSource"
+     }
+    }
+   },
+   "keyvalue.v1.KeyValueSource": {
+    "description": "KeyValueSource represents a source for the value of a KeyValue.",
+    "properties": {
+     "configMapKeyRef": {
+      "description": "Selects a key of a ConfigMap.",
+      "$ref": "#/definitions/io.k8s.api.core.v1.ConfigMapKeySelector"
+     },
+     "secretKeyRef": {
+      "description": "Selects a key of a secret in the resource namespace",
+      "$ref": "#/definitions/io.k8s.api.core.v1.SecretKeySelector"
+     }
+    }
+   },
+   "lib.ibmcloud.v1.ResourceContext": {
+    "description": "ResourceContext defines the CloudFoundry context and resource group",
+    "properties": {
+     "org": {
+      "type": "string"
+     },
+     "region": {
+      "type": "string"
+     },
+     "resourcegroup": {
+      "type": "string"
+     },
+     "resourcelocation": {
+      "type": "string"
+     },
+     "space": {
+      "type": "string"
+     }
+    }
+   },
+   "openwhisk.v1beta1.Composition": {
+    "description": "Composition is the Schema for the compositions API",
+    "properties": {
+     "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#resources",
+      "type": "string"
+     },
+     "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds",
+      "type": "string"
+     },
+     "metadata": {
+      "$ref": "#/definitions/meta.v1.ObjectMeta"
+     },
+     "spec": {
+      "$ref": "#/definitions/openwhisk.v1beta1.CompositionSpec"
+     },
+     "status": {
+      "$ref": "#/definitions/openwhisk.v1beta1.CompositionStatus"
+     }
+    },
+    "x-kubernetes-group-version-kind": [
+     {
+      "group": "openwhisk.seed.ibm.com",
+      "version": "v1beta1",
+      "kind": "Composition"
+     }
+    ]
+   },
+   "openwhisk.v1beta1.CompositionList": {
+    "description": "CompositionList contains a list of Composition",
+    "required": [
+     "items"
+    ],
+    "properties": {
+     "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#resources",
+      "type": "string"
+     },
+     "items": {
+      "type": "array",
+      "items": {
+       "$ref": "#/definitions/openwhisk.v1beta1.Composition"
+      }
+     },
+     "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds",
+      "type": "string"
+     },
+     "metadata": {
+      "$ref": "#/definitions/meta.v1.ListMeta"
+     }
+    },
+    "x-kubernetes-group-version-kind": [
+     {
+      "group": "openwhisk.seed.ibm.com",
+      "version": "v1beta1",
+      "kind": "CompositionList"
+     }
+    ]
+   },
+   "openwhisk.v1beta1.CompositionSpec": {
+    "description": "CompositionSpec defines the desired state of Composition",
+    "properties": {
+     "composition": {
+      "description": "The inline composition to deploy.",
+      "type": "string"
+     },
+     "compositionURI": {
+      "description": "The location of the composition to deploy. Support `http(s)` and `file` protocols.",
+      "type": "string"
+     },
+     "context": {
+      "description": "Where to deploy the composition. If not specified, the controller reads the wsk properties from `seed-default-owprops` secret in the resource namespace. This secret must defined two keys, `apihost` and `auth` `seed-default-owprops` is automatically created from `seed-defaults` or it can be manually set",
+      "$ref": "#/definitions/lib.ibmcloud.v1.ResourceContext"
+     },
+     "contextFrom": {
+      "description": "Reference to a secret representing where to deploy this entity Default is `seed-default-owprops` The secret must defines these fields: apihost (string) : The OpenWhisk host auth (string): the authorization key cert (string):  the client certificate (optional) insecure (bool):  Whether or not to bypass certificate checking (optional, default is false)",
+      "$ref": "#/definitions/io.k8s.api.core.v1.SecretEnvSource"
+     },
+     "name": {
+      "description": "Composition name. Override metadata.name. Does not include the package name (see below)",
+      "type": "string"
+     },
+     "package": {
+      "description": "Composition package name. Add it to the default package when not specified",
+      "type": "string"
+     }
+    }
+   },
+   "openwhisk.v1beta1.CompositionStatus": {
+    "description": "CompositionStatus defines the observed state of Composition",
+    "properties": {
+     "generation": {
+      "description": "Last synced generation. Set by the system",
+      "type": "integer",
+      "format": "int64"
+     },
+     "message": {
+      "type": "string"
+     },
+     "state": {
+      "type": "string"
+     }
+    }
+   },
+   "openwhisk.v1beta1.Function": {
+    "description": "Function is the Schema for the functions API",
+    "properties": {
+     "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#resources",
+      "type": "string"
+     },
+     "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds",
+      "type": "string"
+     },
+     "metadata": {
+      "$ref": "#/definitions/meta.v1.ObjectMeta"
+     },
+     "spec": {
+      "$ref": "#/definitions/openwhisk.v1beta1.FunctionSpec"
+     },
+     "status": {
+      "$ref": "#/definitions/openwhisk.v1beta1.FunctionStatus"
+     }
+    },
+    "x-kubernetes-group-version-kind": [
+     {
+      "group": "openwhisk.seed.ibm.com",
+      "version": "v1beta1",
+      "kind": "Function"
+     }
+    ]
+   },
+   "openwhisk.v1beta1.FunctionList": {
+    "description": "FunctionList contains a list of Function",
+    "required": [
+     "items"
+    ],
+    "properties": {
+     "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#resources",
+      "type": "string"
+     },
+     "items": {
+      "type": "array",
+      "items": {
+       "$ref": "#/definitions/openwhisk.v1beta1.Function"
+      }
+     },
+     "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds",
+      "type": "string"
+     },
+     "metadata": {
+      "$ref": "#/definitions/meta.v1.ListMeta"
+     }
+    },
+    "x-kubernetes-group-version-kind": [
+     {
+      "group": "openwhisk.seed.ibm.com",
+      "version": "v1beta1",
+      "kind": "FunctionList"
+     }
+    ]
+   },
+   "openwhisk.v1beta1.FunctionSpec": {
+    "description": "FunctionSpec represents the specification for Function resources",
+    "properties": {
+     "annotations": {
+      "description": "List of key/value annotations",
+      "type": "array",
+      "items": {
+       "$ref": "#/definitions/keyvalue.v1.KeyValue"
+      }
+     },
+     "code": {
+      "description": "The inline code to deploy.",
+      "type": "string"
+     },
+     "codeURI": {
+      "description": "The location of the code to deploy. Support `http(s)` and `file` protocols.",
+      "type": "string"
+     },
+     "context": {
+      "description": "Where to deploy the function. If not specified, the controller reads the wsk properties from `seed-default-owprops` secret in the resource namespace. This secret must defined two keys, `apihost` and `auth` `seed-default-owprops` is automatically created from `seed-defaults` or it can be manually set",
+      "$ref": "#/definitions/lib.ibmcloud.v1.ResourceContext"
+     },
+     "contextFrom": {
+      "description": "Reference to a secret representing where to deploy this entity Default is `seed-default-owprops` The secret must defines these fields: apihost (string) : The OpenWhisk host auth (string): the authorization key cert (string):  the client certificate (optional) insecure (bool):  Whether or not to bypass certificate checking (optional, default is false)",
+      "$ref": "#/definitions/io.k8s.api.core.v1.SecretEnvSource"
+     },
+     "docker": {
+      "description": "Docker image identifier (in dockerhub). More info: https://github.com/apache/incubator-openwhisk/blob/master/docs/actions-docker.md",
+      "type": "string"
+     },
+     "functions": {
+      "description": "Comma separated sequence of actions. Only valid when `runtime` is `sequence`",
+      "type": "string"
+     },
+     "limits": {
+      "description": "Sets the action limits. More info: https://github.com/apache/incubator-openwhisk/blob/master/docs/reference.md#system-limits",
+      "$ref": "#/definitions/openwhisk.v1beta1.Limits"
+     },
+     "main": {
+      "description": "The name of the action entry point (function or fully-qualified method name when applicable)",
+      "type": "string"
+     },
+     "name": {
+      "description": "Action name. Override metadata.name. Does not include the package name (see below)",
+      "type": "string"
+     },
+     "native": {
+      "description": "Run the action as native. More info: https://github.com/apache/incubator-openwhisk/blob/master/docs/actions-docker.md#creating-native-actions",
+      "type": "boolean"
+     },
+     "package": {
+      "description": "Action package name. Add it to the default package when not specified",
+      "type": "string"
+     },
+     "parameters": {
+      "description": "List of key/value input parameters",
+      "type": "array",
+      "items": {
+       "$ref": "#/definitions/keyvalue.v1.KeyValue"
+      }
+     },
+     "rawHTTP": {
+      "description": "Indicates if the function is able to consume the raw contents within the body of an HTTP request. Only valid when `webExport` is `true`. More info: https://github.com/apache/incubator-openwhisk/blob/master/docs/webactions.md#raw-http-handling",
+      "type": "boolean"
+     },
+     "runtime": {
+      "description": "Runtime name and optional version. More info: https://github.com/apache/incubator-openwhisk/blob/master/docs/actions.md#languages-and-runtimes\n\nSupport these runtimes (not an exhaustive live):\n\nRuntime\t| image name\t| Description\n -------- | --------- | ----------\n app | N/A | runs a function composition\n sequence | N/A | runs a function sequence\n nodejs | nodejsaction:latest | Latest NodeJS runtime\n nodejs:6\t| nodejs6action:latest | Latest NodeJS 6 runtime\n java\t| java8action:latest | Latest Java language runtime\n python:2\t| python2action:latest | Latest Python 2 language runtime\n python:3\t| python3action:latest | Latest Python 3 language runtime\n swift | swiftaction:latest | Latest Swift 2 language runtime\n swift:3\t| swift3action:latest | Latest Swift 3 language runtime\n swift:3.1.1 | action-swift-v3.1.1:latest | Latest Swift 3.1.1 language runtime\n php:7.1 | action-php-v7.1:latest\t| Latest PHP language runtime\n",
+      "type": "string"
+     },
+     "webExport": {
+      "description": "Turns the function into a \"web action\" causing it to return HTTP content without use of an API Gateway. More info: https://github.com/apache/incubator-openwhisk/blob/master/docs/webactions.md",
+      "type": "boolean"
+     }
+    }
+   },
+   "openwhisk.v1beta1.FunctionStatus": {
+    "description": "FunctionStatus defines the observed state of Function",
+    "required": [
+     "generation"
+    ],
+    "properties": {
+     "generation": {
+      "description": "Last synced generation. Set by the system",
+      "type": "integer",
+      "format": "int64"
+     },
+     "message": {
+      "type": "string"
+     },
+     "state": {
+      "type": "string"
+     }
+    }
+   },
+   "openwhisk.v1beta1.Invocation": {
+    "description": "Invocation is the Schema for the invocations API",
+    "properties": {
+     "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#resources",
+      "type": "string"
+     },
+     "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds",
+      "type": "string"
+     },
+     "metadata": {
+      "$ref": "#/definitions/meta.v1.ObjectMeta"
+     },
+     "spec": {
+      "$ref": "#/definitions/openwhisk.v1beta1.InvocationSpec"
+     },
+     "status": {
+      "$ref": "#/definitions/openwhisk.v1beta1.InvocationStatus"
+     }
+    },
+    "x-kubernetes-group-version-kind": [
+     {
+      "group": "openwhisk.seed.ibm.com",
+      "version": "v1beta1",
+      "kind": "Invocation"
+     }
+    ]
+   },
+   "openwhisk.v1beta1.InvocationFinalizer": {
+    "description": "InvocationFinalizer defines the function to invoke when deleting the function invocation",
+    "required": [
+     "function"
+    ],
+    "properties": {
+     "function": {
+      "description": "Function defines the name of the function to invoke (eg. `/whisk.system/utils/echo` or `myfunction`) Invokes the function in the invocation context when the name is not fully qualified",
+      "type": "string"
+     },
+     "parameters": {
+      "description": "Parameters defines the list of parameters to use for the invocation",
+      "type": "array",
+      "items": {
+       "$ref": "#/definitions/keyvalue.v1.KeyValue"
+      }
+     }
+    }
+   },
+   "openwhisk.v1beta1.InvocationList": {
+    "description": "InvocationList contains a list of Invocation",
+    "required": [
+     "items"
+    ],
+    "properties": {
+     "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#resources",
+      "type": "string"
+     },
+     "items": {
+      "type": "array",
+      "items": {
+       "$ref": "#/definitions/openwhisk.v1beta1.Invocation"
+      }
+     },
+     "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds",
+      "type": "string"
+     },
+     "metadata": {
+      "$ref": "#/definitions/meta.v1.ListMeta"
+     }
+    },
+    "x-kubernetes-group-version-kind": [
+     {
+      "group": "openwhisk.seed.ibm.com",
+      "version": "v1beta1",
+      "kind": "InvocationList"
+     }
+    ]
+   },
+   "openwhisk.v1beta1.InvocationSpec": {
+    "description": "InvocationSpec defines the desired state of Invocation",
+    "required": [
+     "function"
+    ],
+    "properties": {
+     "context": {
+      "description": "Where to deploy the invocation. If not specified, the controller reads the wsk properties from `seed-default-owprops` secret in the resource namespace. This secret must defined two keys, `apihost` and `auth` `seed-default-owprops` is automatically created from `seed-defaults` or it can be manually set",
+      "$ref": "#/definitions/lib.ibmcloud.v1.ResourceContext"
+     },
+     "contextFrom": {
+      "description": "Reference to a secret representing where to deploy this entity Default is `seed-default-owprops` The secret must defines these fields: apihost (string) : The OpenWhisk host auth (string): the authorization key cert (string):  the client certificate (optional) insecure (bool):  Whether or not to bypass certificate checking (optional, default is false)",
+      "$ref": "#/definitions/io.k8s.api.core.v1.SecretEnvSource"
+     },
+     "finalizer": {
+      "description": "Defines the function to invoke when this resource is deleted.",
+      "$ref": "#/definitions/openwhisk.v1beta1.InvocationFinalizer"
+     },
+     "function": {
+      "description": "defines the name of function to invoke (eg. `/whisk.system/utils/echo` or `myfunction`) Invokes the function in the invocation context when the name is not fully qualified",
+      "type": "string"
+     },
+     "parameters": {
+      "description": "Defines the list of parameters to use for the invocation",
+      "type": "array",
+      "items": {
+       "$ref": "#/definitions/keyvalue.v1.KeyValue"
+      }
+     },
+     "to": {
+      "description": "Defines where to store the invocation result. Discard the result when not specified.",
+      "$ref": "#/definitions/openwhisk.v1beta1.InvocationTarget"
+     }
+    }
+   },
+   "openwhisk.v1beta1.InvocationStatus": {
+    "description": "InvocationStatus defines the observed state of Invocation",
+    "required": [
+     "generation"
+    ],
+    "properties": {
+     "generation": {
+      "description": "Last synced generation. Set by the system",
+      "type": "integer",
+      "format": "int64"
+     },
+     "message": {
+      "type": "string"
+     },
+     "state": {
+      "type": "string"
+     }
+    }
+   },
+   "openwhisk.v1beta1.InvocationTarget": {
+    "description": "InvocationTarget represents where to store the invocation result",
+    "properties": {
+     "configMapKeyRef": {
+      "description": "Selects a key of a ConfigMap.",
+      "$ref": "#/definitions/io.k8s.api.core.v1.ConfigMapKeySelector"
+     },
+     "projection": {
+      "description": "JSONPath template selecting parts of the invocation result to store. Default is \"{@.response.result}\" More info: https://kubernetes.io/docs/reference/kubectl/jsonpath/",
+      "type": "string"
+     },
+     "secretKeyRef": {
+      "description": "Selects a key of a secret in the invocation namespace",
+      "$ref": "#/definitions/io.k8s.api.core.v1.SecretKeySelector"
+     }
+    }
+   },
+   "openwhisk.v1beta1.Limits": {
+    "description": "Limits is used to express function resources constraints such as memory limits or timeout",
+    "properties": {
+     "logSize": {
+      "description": "The action log size. Default unit is assumed to be in megabytes (MB).",
+      "type": "integer",
+      "format": "int32"
+     },
+     "memory": {
+      "description": "The per-Action memory. Default unit is assumed to be in megabytes (MB).",
+      "type": "integer",
+      "format": "int32"
+     },
+     "timeout": {
+      "description": "The per-invocation Action timeout. Default unit is assumed to be milliseconds (ms).",
+      "type": "integer",
+      "format": "int32"
+     }
+    }
+   },
+   "openwhisk.v1beta1.Package": {
+    "description": "Package is the Schema for the packages API",
+    "properties": {
+     "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#resources",
+      "type": "string"
+     },
+     "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds",
+      "type": "string"
+     },
+     "metadata": {
+      "$ref": "#/definitions/meta.v1.ObjectMeta"
+     },
+     "spec": {
+      "$ref": "#/definitions/openwhisk.v1beta1.PackageSpec"
+     },
+     "status": {
+      "$ref": "#/definitions/openwhisk.v1beta1.PackageStatus"
+     }
+    },
+    "x-kubernetes-group-version-kind": [
+     {
+      "group": "openwhisk.seed.ibm.com",
+      "version": "v1beta1",
+      "kind": "Package"
+     }
+    ]
+   },
+   "openwhisk.v1beta1.PackageList": {
+    "description": "PackageList contains a list of Package",
+    "required": [
+     "items"
+    ],
+    "properties": {
+     "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#resources",
+      "type": "string"
+     },
+     "items": {
+      "type": "array",
+      "items": {
+       "$ref": "#/definitions/openwhisk.v1beta1.Package"
+      }
+     },
+     "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds",
+      "type": "string"
+     },
+     "metadata": {
+      "$ref": "#/definitions/meta.v1.ListMeta"
+     }
+    },
+    "x-kubernetes-group-version-kind": [
+     {
+      "group": "openwhisk.seed.ibm.com",
+      "version": "v1beta1",
+      "kind": "PackageList"
+     }
+    ]
+   },
+   "openwhisk.v1beta1.PackageSpec": {
+    "description": "PackageSpec defines the desired state of Package",
+    "properties": {
+     "annotations": {
+      "description": "List of key/value annotations",
+      "type": "array",
+      "items": {
+       "$ref": "#/definitions/keyvalue.v1.KeyValue"
+      }
+     },
+     "bind": {
+      "description": "Name of the package for which a binding should be created",
+      "type": "string"
+     },
+     "context": {
+      "description": "Where to deploy the package. If not specified, the controller reads the wsk properties from `seed-default-owprops` secret in the resource namespace. This secret must defined two keys, `apihost` and `auth` `seed-default-owprops` is automatically created from `seed-defaults` or it can be manually set",
+      "$ref": "#/definitions/lib.ibmcloud.v1.ResourceContext"
+     },
+     "contextFrom": {
+      "description": "Reference to a secret representing where to deploy this entity Default is `seed-default-owprops` The secret must defines these fields: apihost (string) : The OpenWhisk host auth (string): the authorization key cert (string):  the client certificate (optional) insecure (bool):  Whether or not to bypass certificate checking (optional, default is false)",
+      "$ref": "#/definitions/io.k8s.api.core.v1.SecretEnvSource"
+     },
+     "name": {
+      "description": "Package name. Override metadata.name. `default` is reserved.",
+      "type": "string"
+     },
+     "parameters": {
+      "description": "List of key/value input parameters",
+      "type": "array",
+      "items": {
+       "$ref": "#/definitions/keyvalue.v1.KeyValue"
+      }
+     },
+     "publish": {
+      "description": "Package visibility; `true` for `shared`, `false` for `private`",
+      "type": "boolean"
+     },
+     "service": {
+      "description": "indicates a cloud service resource which you want to bind to. This feature provides automatic injection of service keys into the binding parameters (for example user, password, urls)",
+      "type": "string"
+     }
+    }
+   },
+   "openwhisk.v1beta1.PackageStatus": {
+    "description": "PackageStatus defines the observed state of Package",
+    "required": [
+     "generation"
+    ],
+    "properties": {
+     "generation": {
+      "description": "Last synced generation. Set by the system",
+      "type": "integer",
+      "format": "int64"
+     },
+     "message": {
+      "type": "string"
+     },
+     "state": {
+      "type": "string"
+     }
+    }
+   },
+   "openwhisk.v1beta1.Rule": {
+    "description": "Rule is the Schema for the rules API",
+    "properties": {
+     "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#resources",
+      "type": "string"
+     },
+     "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds",
+      "type": "string"
+     },
+     "metadata": {
+      "$ref": "#/definitions/meta.v1.ObjectMeta"
+     },
+     "spec": {
+      "$ref": "#/definitions/openwhisk.v1beta1.RuleSpec"
+     },
+     "status": {
+      "$ref": "#/definitions/openwhisk.v1beta1.RuleStatus"
+     }
+    },
+    "x-kubernetes-group-version-kind": [
+     {
+      "group": "openwhisk.seed.ibm.com",
+      "version": "v1beta1",
+      "kind": "Rule"
+     }
+    ]
+   },
+   "openwhisk.v1beta1.RuleList": {
+    "description": "RuleList contains a list of Rule",
+    "required": [
+     "items"
+    ],
+    "properties": {
+     "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#resources",
+      "type": "string"
+     },
+     "items": {
+      "type": "array",
+      "items": {
+       "$ref": "#/definitions/openwhisk.v1beta1.Rule"
+      }
+     },
+     "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds",
+      "type": "string"
+     },
+     "metadata": {
+      "$ref": "#/definitions/meta.v1.ListMeta"
+     }
+    },
+    "x-kubernetes-group-version-kind": [
+     {
+      "group": "openwhisk.seed.ibm.com",
+      "version": "v1beta1",
+      "kind": "RuleList"
+     }
+    ]
+   },
+   "openwhisk.v1beta1.RuleSpec": {
+    "description": "RuleSpec defines the desired state of Rule",
+    "required": [
+     "trigger",
+     "function"
+    ],
+    "properties": {
+     "context": {
+      "description": "Where to deploy the rule. If not specified, the controller reads the wsk properties from `seed-default-owprops` secret in the resource namespace. This secret must defined two keys, `apihost` and `auth` `seed-default-owprops` is automatically created from `seed-defaults` or it can be manually set",
+      "$ref": "#/definitions/lib.ibmcloud.v1.ResourceContext"
+     },
+     "contextFrom": {
+      "description": "Reference to a secret representing where to deploy this entity Default is `seed-default-owprops` The secret must defines these fields: apihost (string) : The OpenWhisk host auth (string): the authorization key cert (string):  the client certificate (optional) insecure (bool):  Whether or not to bypass certificate checking (optional, default is false)",
+      "$ref": "#/definitions/io.k8s.api.core.v1.SecretEnvSource"
+     },
+     "function": {
+      "description": "Name of the action the rule applies to",
+      "type": "string"
+     },
+     "name": {
+      "description": "Rule name. Override metadata.name.",
+      "type": "string"
+     },
+     "trigger": {
+      "description": "Name of the trigger the Rule applies to",
+      "type": "string"
+     }
+    }
+   },
+   "openwhisk.v1beta1.RuleStatus": {
+    "description": "RuleStatus defines the observed state of Rule",
+    "required": [
+     "generation"
+    ],
+    "properties": {
+     "generation": {
+      "description": "Last synced generation. Set by the system",
+      "type": "integer",
+      "format": "int64"
+     },
+     "message": {
+      "type": "string"
+     },
+     "state": {
+      "type": "string"
+     }
+    }
+   },
+   "openwhisk.v1beta1.Trigger": {
+    "description": "Trigger is the Schema for the triggers API",
+    "properties": {
+     "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#resources",
+      "type": "string"
+     },
+     "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds",
+      "type": "string"
+     },
+     "metadata": {
+      "$ref": "#/definitions/meta.v1.ObjectMeta"
+     },
+     "spec": {
+      "$ref": "#/definitions/openwhisk.v1beta1.TriggerSpec"
+     },
+     "status": {
+      "$ref": "#/definitions/openwhisk.v1beta1.TriggerStatus"
+     }
+    },
+    "x-kubernetes-group-version-kind": [
+     {
+      "group": "openwhisk.seed.ibm.com",
+      "version": "v1beta1",
+      "kind": "Trigger"
+     }
+    ]
+   },
+   "openwhisk.v1beta1.TriggerList": {
+    "description": "TriggerList contains a list of Trigger",
+    "required": [
+     "items"
+    ],
+    "properties": {
+     "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#resources",
+      "type": "string"
+     },
+     "items": {
+      "type": "array",
+      "items": {
+       "$ref": "#/definitions/openwhisk.v1beta1.Trigger"
+      }
+     },
+     "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds",
+      "type": "string"
+     },
+     "metadata": {
+      "$ref": "#/definitions/meta.v1.ListMeta"
+     }
+    },
+    "x-kubernetes-group-version-kind": [
+     {
+      "group": "openwhisk.seed.ibm.com",
+      "version": "v1beta1",
+      "kind": "TriggerList"
+     }
+    ]
+   },
+   "openwhisk.v1beta1.TriggerSpec": {
+    "description": "TriggerSpec defines the desired state of Trigger",
+    "properties": {
+     "annotations": {
+      "description": "List of key/value annotations",
+      "type": "array",
+      "items": {
+       "$ref": "#/definitions/keyvalue.v1.KeyValue"
+      }
+     },
+     "context": {
+      "description": "Where to deploy the trigger. If not specified, the controller reads the wsk properties from `seed-default-owprops` secret in the resource namespace. This secret must defined two keys, `apihost` and `auth` `seed-default-owprops` is automatically created from `seed-defaults` or it can be manually set",
+      "$ref": "#/definitions/lib.ibmcloud.v1.ResourceContext"
+     },
+     "contextFrom": {
+      "description": "Reference to a secret representing where to deploy this entity Default is `seed-default-owprops` The secret must defines these fields: apihost (string) : The OpenWhisk host auth (string): the authorization key cert (string):  the client certificate (optional) insecure (bool):  Whether or not to bypass certificate checking (optional, default is false)",
+      "$ref": "#/definitions/io.k8s.api.core.v1.SecretEnvSource"
+     },
+     "feed": {
+      "description": "Name of the feed associated with the trigger",
+      "type": "string"
+     },
+     "name": {
+      "description": "Trigger name. Override metadata.name.",
+      "type": "string"
+     },
+     "parameters": {
+      "description": "List of key/value input parameters",
+      "type": "array",
+      "items": {
+       "$ref": "#/definitions/keyvalue.v1.KeyValue"
+      }
+     }
+    }
+   },
+   "openwhisk.v1beta1.TriggerStatus": {
+    "description": "TriggerStatus defines the observed state of Trigger",
+    "required": [
+     "generation"
+    ],
+    "properties": {
+     "generation": {
+      "description": "Last synced generation. Set by the system",
+      "type": "integer",
+      "format": "int64"
+     },
+     "message": {
+      "type": "string"
+     },
+     "state": {
+      "type": "string"
+     }
+    }
+   }
+  }
+ }

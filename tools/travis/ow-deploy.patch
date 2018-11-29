@@ -1,0 +1,13 @@
+--- deploy.yml	2018-06-18 08:50:25.000000000 -0400
++++ d2.yaml	2018-06-18 08:50:39.000000000 -0400
+@@ -62,8 +62,8 @@
+       - "{{ whisk_logs_dir }}/nginx:/logs"
+       - "{{ nginx.confdir }}:/etc/nginx"
+     expose:
+-      - 8443
++      - 8444
+     ports:
+       - "{{ nginx.port.http }}:80"
+       - "{{ nginx.port.api }}:443"
+-      - "{{ nginx.port.adminportal }}:8443"
++      - "{{ nginx.port.adminportal }}:8444"

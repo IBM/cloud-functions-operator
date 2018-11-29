@@ -1,0 +1,4 @@
+apiVersion: openwhisk.seed.ibm.com/v1beta1
+kind: Trigger
+metadata:
+  name: location-update-trigger

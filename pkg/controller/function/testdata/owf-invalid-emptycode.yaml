@@ -1,0 +1,8 @@
+apiVersion: openwhisk.seed.ibm.com/v1beta1
+kind: Function
+metadata:
+  name: invalid-emptycode
+spec:
+  code:
+  runtime: "nodejs:6"
+  

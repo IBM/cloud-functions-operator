@@ -1,0 +1,2846 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kubernetes Apache Openwhisk Operator | API Reference</title>
+    <link rel="stylesheet" href="stylesheets/foundation.min.css" />
+    <link rel="stylesheet" href="stylesheets/spectacle.min.css" />
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <!-- <script src="javascripts/foundation.js"></script> -->
+    <script src="javascripts/spectacle.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans" rel="stylesheet"> </head>
+  <body id="spectacle">
+    <div id="page" class="drawer-layout drawer-slide-right-large">
+      <div id="sidebar">
+        <button class="close-button" aria-label="Close menu" type="button" data-drawer-close>
+          <span aria-hidden="true">×</span>
+        </button>
+        <nav id="nav" role="navigation">
+          <h5>Topics</h5>
+          <a href="#introduction">Introduction</a>
+          <h5>Paths</h5>
+          <h5>Schema Definitions</h5>
+          <a href="#definition-keyvalue.v1.KeyValue"> keyvalue.v1.KeyValue </a>
+          <a href="#definition-keyvalue.v1.KeyValueSource"> keyvalue.v1.KeyValueSource </a>
+          <a href="#definition-lib.ibmcloud.v1.ResourceContext"> lib.ibmcloud.v1.ResourceContext </a>
+          <a href="#definition-openwhisk.v1beta1.Composition"> openwhisk.v1beta1.Composition </a>
+          <a href="#definition-openwhisk.v1beta1.CompositionList"> openwhisk.v1beta1.CompositionList </a>
+          <a href="#definition-openwhisk.v1beta1.CompositionSpec"> openwhisk.v1beta1.CompositionSpec </a>
+          <a href="#definition-openwhisk.v1beta1.CompositionStatus"> openwhisk.v1beta1.CompositionStatus </a>
+          <a href="#definition-openwhisk.v1beta1.Function"> openwhisk.v1beta1.Function </a>
+          <a href="#definition-openwhisk.v1beta1.FunctionList"> openwhisk.v1beta1.FunctionList </a>
+          <a href="#definition-openwhisk.v1beta1.FunctionSpec"> openwhisk.v1beta1.FunctionSpec </a>
+          <a href="#definition-openwhisk.v1beta1.FunctionStatus"> openwhisk.v1beta1.FunctionStatus </a>
+          <a href="#definition-openwhisk.v1beta1.Invocation"> openwhisk.v1beta1.Invocation </a>
+          <a href="#definition-openwhisk.v1beta1.InvocationFinalizer"> openwhisk.v1beta1.InvocationFinalizer </a>
+          <a href="#definition-openwhisk.v1beta1.InvocationList"> openwhisk.v1beta1.InvocationList </a>
+          <a href="#definition-openwhisk.v1beta1.InvocationSpec"> openwhisk.v1beta1.InvocationSpec </a>
+          <a href="#definition-openwhisk.v1beta1.InvocationStatus"> openwhisk.v1beta1.InvocationStatus </a>
+          <a href="#definition-openwhisk.v1beta1.InvocationTarget"> openwhisk.v1beta1.InvocationTarget </a>
+          <a href="#definition-openwhisk.v1beta1.Limits"> openwhisk.v1beta1.Limits </a>
+          <a href="#definition-openwhisk.v1beta1.Package"> openwhisk.v1beta1.Package </a>
+          <a href="#definition-openwhisk.v1beta1.PackageList"> openwhisk.v1beta1.PackageList </a>
+          <a href="#definition-openwhisk.v1beta1.PackageSpec"> openwhisk.v1beta1.PackageSpec </a>
+          <a href="#definition-openwhisk.v1beta1.PackageStatus"> openwhisk.v1beta1.PackageStatus </a>
+          <a href="#definition-openwhisk.v1beta1.Rule"> openwhisk.v1beta1.Rule </a>
+          <a href="#definition-openwhisk.v1beta1.RuleList"> openwhisk.v1beta1.RuleList </a>
+          <a href="#definition-openwhisk.v1beta1.RuleSpec"> openwhisk.v1beta1.RuleSpec </a>
+          <a href="#definition-openwhisk.v1beta1.RuleStatus"> openwhisk.v1beta1.RuleStatus </a>
+          <a href="#definition-openwhisk.v1beta1.Trigger"> openwhisk.v1beta1.Trigger </a>
+          <a href="#definition-openwhisk.v1beta1.TriggerList"> openwhisk.v1beta1.TriggerList </a>
+          <a href="#definition-openwhisk.v1beta1.TriggerSpec"> openwhisk.v1beta1.TriggerSpec </a>
+          <a href="#definition-openwhisk.v1beta1.TriggerStatus"> openwhisk.v1beta1.TriggerStatus </a>
+        </nav>
+      </div>
+      <div id="docs" class="row collapse expanded drawer" data-drawer>
+        <button class="floating-menu-icon" type="button" data-drawer-slide="right">
+          <span class="hamburger"></span>
+        </button>
+        <div class="example-box doc-content"></div>
+        <article>
+          <h1 class="doc-title">Kubernetes Apache Openwhisk Operator
+            <span>API Reference</span>
+          </h1>
+          <div id="introduction" data-traverse-target="introduction">
+            <div class="doc-row">
+              <div class="doc-copy">
+                <p>Collection of Kubernetes operators for managing Apache Openwhisk resources, such as actions, packages, triggers and rules.</p>
+              </div>
+              <div class="doc-examples">
+                <section>
+                  <h5>Version:
+                    <span>1.0</span>
+                  </h5>
+                </section>
+              </div>
+            </div>
+          </div>
+          <h1>Paths</h1>
+          <h1>Schema Definitions</h1>
+          <div id="definition-keyvalue.v1.KeyValue" class="definition panel" data-traverse-target="definition-keyvalue.v1.KeyValue">
+            <h2 class="panel-title">
+              <a name="/definitions/keyvalue.v1.KeyValue"></a>keyvalue.v1.KeyValue:
+              <!-- <span class="json-property-type"><span class="json-property-type">object</span>
+              <span class="json-property-range" title="Value limits"></span>
+              
+              
+              </span> -->
+            </h2>
+            <div class="doc-row">
+              <div class="doc-copy">
+                <section class="json-schema-description">
+                  <p>KeyValue represents a key-value pair</p>
+                </section>
+                <section class="json-schema-properties">
+                  <dl>
+                    <dt data-property-name="attributes" class="has-description">
+                      <span class="json-property-name">attributes:</span>
+                      <span class="json-property-type">object</span>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </dt>
+                    <dd>
+                      <p>A parameter may have attributes (e.g. message hub topic might have partitions)</p>
+                    </dd>
+                    <dt data-property-name="name" class="has-description">
+                      <span class="json-property-name">name:</span>
+                      <span class="json-property-type">string</span>
+                      <span class="json-property-range" title="Value limits"></span>
+                      <span class="json-property-required"></span>
+                    </dt>
+                    <dd>
+                      <p>Name representing the key.</p>
+                    </dd>
+                    <dt data-property-name="value" class="has-description">
+                      <span class="json-property-name">value:</span>
+                      <span class="json-property-type">
+                        <span class="">
+                          <a class="json-schema-ref" href="#/definitions/runtime.RawExtension">runtime.RawExtension</a>
+                        </span>
+                      </span>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </dt>
+                    <dd>
+                      <p>Defaults to null.</p>
+                    </dd>
+                    <dt data-property-name="valueFrom" class="has-description">
+                      <span class="json-property-name">valueFrom:</span>
+                      <span class="json-property-type">
+                        <span class="">
+                          <a class="json-schema-ref" href="#/definitions/keyvalue.v1.KeyValueSource">keyvalue.v1.KeyValueSource</a>
+                        </span>
+                      </span>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </dt>
+                    <dd>
+                      <p>Source for the value. Cannot be used if value is not empty.</p>
+                    </dd>
+                  </dl>
+                </section>
+              </div>
+              <div class="doc-examples">
+                <section>
+                  <h5>Example</h5>
+                  <!-- <div class="hljs"> -->
+                  <html>
+                  <head></head>
+                  <body><pre><code class="hljs language-yaml"><span class="hljs-attr">attributes:</span> <span class="hljs-string">object</span>
+<span class="hljs-attr">name:</span> <span class="hljs-string">string</span>
+<span class="hljs-attr">valueFrom:</span> <span class="hljs-string">{}</span>
+</code></pre> </body>
+                  </html>
+                  <!-- </div> -->
+                </section>
+              </div>
+            </div>
+          </div>
+          <div id="definition-keyvalue.v1.KeyValueSource" class="definition panel" data-traverse-target="definition-keyvalue.v1.KeyValueSource">
+            <h2 class="panel-title">
+              <a name="/definitions/keyvalue.v1.KeyValueSource"></a>keyvalue.v1.KeyValueSource:
+              <!-- <span class="json-property-type"><span class="json-property-type">object</span>
+              <span class="json-property-range" title="Value limits"></span>
+              
+              
+              </span> -->
+            </h2>
+            <div class="doc-row">
+              <div class="doc-copy">
+                <section class="json-schema-description">
+                  <p>KeyValueSource represents a source for the value of a KeyValue.</p>
+                </section>
+                <section class="json-schema-properties">
+                  <dl>
+                    <dt data-property-name="configMapKeyRef" class="has-description">
+                      <span class="json-property-name">configMapKeyRef:</span>
+                      <span class="json-property-type">
+                        <span class="">
+                          <a class="json-schema-ref" href="#/definitions/io.k8s.api.core.v1.ConfigMapKeySelector">io.k8s.api.core.v1.ConfigMapKeySelector</a>
+                        </span>
+                      </span>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </dt>
+                    <dd>
+                      <p>Selects a key of a ConfigMap.</p>
+                    </dd>
+                    <dt data-property-name="secretKeyRef" class="has-description">
+                      <span class="json-property-name">secretKeyRef:</span>
+                      <span class="json-property-type">
+                        <span class="">
+                          <a class="json-schema-ref" href="#/definitions/io.k8s.api.core.v1.SecretKeySelector">io.k8s.api.core.v1.SecretKeySelector</a>
+                        </span>
+                      </span>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </dt>
+                    <dd>
+                      <p>Selects a key of a secret in the resource namespace</p>
+                    </dd>
+                  </dl>
+                </section>
+              </div>
+              <div class="doc-examples">
+                <section>
+                  <h5>Example</h5>
+                  <!-- <div class="hljs"> -->
+                  <html>
+                  <head></head>
+                  <body><pre><code class="hljs language-yaml"><span class="hljs-string">{}</span>
+</code></pre> </body>
+                  </html>
+                  <!-- </div> -->
+                </section>
+              </div>
+            </div>
+          </div>
+          <div id="definition-lib.ibmcloud.v1.ResourceContext" class="definition panel" data-traverse-target="definition-lib.ibmcloud.v1.ResourceContext">
+            <h2 class="panel-title">
+              <a name="/definitions/lib.ibmcloud.v1.ResourceContext"></a>lib.ibmcloud.v1.ResourceContext:
+              <!-- <span class="json-property-type"><span class="json-property-type">object</span>
+              <span class="json-property-range" title="Value limits"></span>
+              
+              
+              </span> -->
+            </h2>
+            <div class="doc-row">
+              <div class="doc-copy">
+                <section class="json-schema-description">
+                  <p>ResourceContext defines the CloudFoundry context and resource group</p>
+                </section>
+                <section class="json-schema-properties">
+                  <dl>
+                    <dt data-property-name="org">
+                      <span class="json-property-name">org:</span>
+                      <span class="json-property-type">string</span>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </dt>
+                    <dt data-property-name="region">
+                      <span class="json-property-name">region:</span>
+                      <span class="json-property-type">string</span>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </dt>
+                    <dt data-property-name="resourcegroup">
+                      <span class="json-property-name">resourcegroup:</span>
+                      <span class="json-property-type">string</span>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </dt>
+                    <dt data-property-name="resourcelocation">
+                      <span class="json-property-name">resourcelocation:</span>
+                      <span class="json-property-type">string</span>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </dt>
+                    <dt data-property-name="space">
+                      <span class="json-property-name">space:</span>
+                      <span class="json-property-type">string</span>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </dt>
+                  </dl>
+                </section>
+              </div>
+              <div class="doc-examples">
+                <section>
+                  <h5>Example</h5>
+                  <!-- <div class="hljs"> -->
+                  <html>
+                  <head></head>
+                  <body><pre><code class="hljs language-yaml"><span class="hljs-attr">org:</span> <span class="hljs-string">string</span>
+<span class="hljs-attr">region:</span> <span class="hljs-string">string</span>
+<span class="hljs-attr">resourcegroup:</span> <span class="hljs-string">string</span>
+<span class="hljs-attr">resourcelocation:</span> <span class="hljs-string">string</span>
+<span class="hljs-attr">space:</span> <span class="hljs-string">string</span>
+</code></pre> </body>
+                  </html>
+                  <!-- </div> -->
+                </section>
+              </div>
+            </div>
+          </div>
+          <div id="definition-openwhisk.v1beta1.Composition" class="definition panel" data-traverse-target="definition-openwhisk.v1beta1.Composition">
+            <h2 class="panel-title">
+              <a name="/definitions/openwhisk.v1beta1.Composition"></a>openwhisk.v1beta1.Composition:
+              <!-- <span class="json-property-type"><span class="json-property-type">object</span>
+              <span class="json-property-range" title="Value limits"></span>
+              
+              
+              </span> -->
+            </h2>
+            <div class="doc-row">
+              <div class="doc-copy">
+                <section class="json-schema-description">
+                  <p>Composition is the Schema for the compositions API</p>
+                </section>
+                <section class="json-schema-properties">
+                  <dl>
+                    <dt data-property-name="apiVersion" class="has-description">
+                      <span class="json-property-name">apiVersion:</span>
+                      <span class="json-property-type">string</span>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </dt>
+                    <dd>
+                      <p>APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info:
+                        <a href="https://git.k8s.io/community/contributors/devel/api-conventions.md#resources">https://git.k8s.io/community/contributors/devel/api-conventions.md#resources</a>
+                      </p>
+                    </dd>
+                    <dt data-property-name="kind" class="has-description">
+                      <span class="json-property-name">kind:</span>
+                      <span class="json-property-type">string</span>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </dt>
+                    <dd>
+                      <p>Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info:
+                        <a href="https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds">https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds</a>
+                      </p>
+                    </dd>
+                    <dt data-property-name="metadata">
+                      <span class="json-property-name">metadata:</span>
+                      <span class="json-property-type">
+                        <span class="">
+                          <a class="json-schema-ref" href="#/definitions/meta.v1.ObjectMeta">meta.v1.ObjectMeta</a>
+                        </span>
+                      </span>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </dt>
+                    <dt data-property-name="spec">
+                      <span class="json-property-name">spec:</span>
+                      <span class="json-property-type">
+                        <span class="">
+                          <a class="json-schema-ref" href="#/definitions/openwhisk.v1beta1.CompositionSpec">openwhisk.v1beta1.CompositionSpec</a>
+                        </span>
+                      </span>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </dt>
+                    <dt data-property-name="status">
+                      <span class="json-property-name">status:</span>
+                      <span class="json-property-type">
+                        <span class="">
+                          <a class="json-schema-ref" href="#/definitions/openwhisk.v1beta1.CompositionStatus">openwhisk.v1beta1.CompositionStatus</a>
+                        </span>
+                      </span>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </dt>
+                  </dl>
+                </section>
+              </div>
+              <div class="doc-examples">
+                <section>
+                  <h5>Example</h5>
+                  <!-- <div class="hljs"> -->
+                  <html>
+                  <head></head>
+                  <body><pre><code class="hljs language-yaml"><span class="hljs-attr">apiVersion:</span> <span class="hljs-string">string</span>
+<span class="hljs-attr">kind:</span> <span class="hljs-string">string</span>
+<span class="hljs-attr">spec:</span>
+<span class="hljs-attr">  composition:</span> <span class="hljs-string">string</span>
+<span class="hljs-attr">  compositionURI:</span> <span class="hljs-string">string</span>
+<span class="hljs-attr">  context:</span>
+<span class="hljs-attr">    org:</span> <span class="hljs-string">string</span>
+<span class="hljs-attr">    region:</span> <span class="hljs-string">string</span>
+<span class="hljs-attr">    resourcegroup:</span> <span class="hljs-string">string</span>
+<span class="hljs-attr">    resourcelocation:</span> <span class="hljs-string">string</span>
+<span class="hljs-attr">    space:</span> <span class="hljs-string">string</span>
+<span class="hljs-attr">  name:</span> <span class="hljs-string">string</span>
+<span class="hljs-attr">  package:</span> <span class="hljs-string">string</span>
+<span class="hljs-attr">status:</span>
+<span class="hljs-attr">  generation:</span> <span class="hljs-string">integer</span> <span class="hljs-string">(int64)</span>
+<span class="hljs-attr">  message:</span> <span class="hljs-string">string</span>
+<span class="hljs-attr">  state:</span> <span class="hljs-string">string</span>
+</code></pre> </body>
+                  </html>
+                  <!-- </div> -->
+                </section>
+              </div>
+            </div>
+          </div>
+          <div id="definition-openwhisk.v1beta1.CompositionList" class="definition panel" data-traverse-target="definition-openwhisk.v1beta1.CompositionList">
+            <h2 class="panel-title">
+              <a name="/definitions/openwhisk.v1beta1.CompositionList"></a>openwhisk.v1beta1.CompositionList:
+              <!-- <span class="json-property-type"><span class="json-property-type">object</span>
+              <span class="json-property-range" title="Value limits"></span>
+              
+              
+              </span> -->
+            </h2>
+            <div class="doc-row">
+              <div class="doc-copy">
+                <section class="json-schema-description">
+                  <p>CompositionList contains a list of Composition</p>
+                </section>
+                <section class="json-schema-properties">
+                  <dl>
+                    <dt data-property-name="apiVersion" class="has-description">
+                      <span class="json-property-name">apiVersion:</span>
+                      <span class="json-property-type">string</span>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </dt>
+                    <dd>
+                      <p>APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info:
+                        <a href="https://git.k8s.io/community/contributors/devel/api-conventions.md#resources">https://git.k8s.io/community/contributors/devel/api-conventions.md#resources</a>
+                      </p>
+                    </dd>
+                    <dt data-property-name="items">
+                      <span class="json-property-name">items:</span>
+                      <span class="json-property-type">
+                        <span class="json-schema-ref-array">
+                          <a class="json-schema-ref" href="#/definitions/openwhisk.v1beta1.Composition">openwhisk.v1beta1.Composition</a>
+                        </span>
+                      </span>
+                      <span class="json-property-range" title="Value limits"></span>
+                      <span class="json-property-required"></span>
+                    </dt>
+                    <dt class="json-inner-schema">
+                      <section class="json-schema-array-items">
+                        <span class="json-property-type">
+                          <span class="">
+                            <a class="json-schema-ref" href="#/definitions/openwhisk.v1beta1.Composition">openwhisk.v1beta1.Composition</a>
+                          </span>
+                        </span>
+                        <span class="json-property-range" title="Value limits"></span>
+                        <div class="json-inner-schema"> </div>
+                      </section>
+                    </dt>
+                    <dt data-property-name="kind" class="has-description">
+                      <span class="json-property-name">kind:</span>
+                      <span class="json-property-type">string</span>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </dt>
+                    <dd>
+                      <p>Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info:
+                        <a href="https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds">https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds</a>
+                      </p>
+                    </dd>
+                    <dt data-property-name="metadata">
+                      <span class="json-property-name">metadata:</span>
+                      <span class="json-property-type">
+                        <span class="">
+                          <a class="json-schema-ref" href="#/definitions/meta.v1.ListMeta">meta.v1.ListMeta</a>
+                        </span>
+                      </span>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </dt>
+                  </dl>
+                </section>
+              </div>
+              <div class="doc-examples">
+                <section>
+                  <h5>Example</h5>
+                  <!-- <div class="hljs"> -->
+                  <html>
+                  <head></head>
+                  <body><pre><code class="hljs language-yaml"><span class="hljs-attr">apiVersion:</span> <span class="hljs-string">string</span>
+<span class="hljs-attr">items:</span>
+<span class="hljs-attr">  - apiVersion:</span> <span class="hljs-string">string</span>
+<span class="hljs-attr">    kind:</span> <span class="hljs-string">string</span>
+<span class="hljs-attr">    spec:</span>
+<span class="hljs-attr">      composition:</span> <span class="hljs-string">string</span>
+<span class="hljs-attr">      compositionURI:</span> <span class="hljs-string">string</span>
+<span class="hljs-attr">      context:</span>
+<span class="hljs-attr">        org:</span> <span class="hljs-string">string</span>
+<span class="hljs-attr">        region:</span> <span class="hljs-string">string</span>
+<span class="hljs-attr">        resourcegroup:</span> <span class="hljs-string">string</span>
+<span class="hljs-attr">        resourcelocation:</span> <span class="hljs-string">string</span>
+<span class="hljs-attr">        space:</span> <span class="hljs-string">string</span>
+<span class="hljs-attr">      name:</span> <span class="hljs-string">string</span>
+<span class="hljs-attr">      package:</span> <span class="hljs-string">string</span>
+<span class="hljs-attr">    status:</span>
+<span class="hljs-attr">      generation:</span> <span class="hljs-string">integer</span> <span class="hljs-string">(int64)</span>
+<span class="hljs-attr">      message:</span> <span class="hljs-string">string</span>
+<span class="hljs-attr">      state:</span> <span class="hljs-string">string</span>
+<span class="hljs-attr">kind:</span> <span class="hljs-string">string</span>
+</code></pre> </body>
+                  </html>
+                  <!-- </div> -->
+                </section>
+              </div>
+            </div>
+          </div>
+          <div id="definition-openwhisk.v1beta1.CompositionSpec" class="definition panel" data-traverse-target="definition-openwhisk.v1beta1.CompositionSpec">
+            <h2 class="panel-title">
+              <a name="/definitions/openwhisk.v1beta1.CompositionSpec"></a>openwhisk.v1beta1.CompositionSpec:
+              <!-- <span class="json-property-type"><span class="json-property-type">object</span>
+              <span class="json-property-range" title="Value limits"></span>
+              
+              
+              </span> -->
+            </h2>
+            <div class="doc-row">
+              <div class="doc-copy">
+                <section class="json-schema-description">
+                  <p>CompositionSpec defines the desired state of Composition</p>
+                </section>
+                <section class="json-schema-properties">
+                  <dl>
+                    <dt data-property-name="composition" class="has-description">
+                      <span class="json-property-name">composition:</span>
+                      <span class="json-property-type">string</span>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </dt>
+                    <dd>
+                      <p>The inline composition to deploy.</p>
+                    </dd>
+                    <dt data-property-name="compositionURI" class="has-description">
+                      <span class="json-property-name">compositionURI:</span>
+                      <span class="json-property-type">string</span>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </dt>
+                    <dd>
+                      <p>The location of the composition to deploy. Support <code>http(s)</code> and <code>file</code> protocols.</p>
+                    </dd>
+                    <dt data-property-name="context" class="has-description">
+                      <span class="json-property-name">context:</span>
+                      <span class="json-property-type">
+                        <span class="">
+                          <a class="json-schema-ref" href="#/definitions/lib.ibmcloud.v1.ResourceContext">lib.ibmcloud.v1.ResourceContext</a>
+                        </span>
+                      </span>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </dt>
+                    <dd>
+                      <p>Where to deploy the composition. If not specified, the controller reads the wsk properties from <code>seed-default-owprops</code> secret in the resource namespace. This secret must defined two keys, <code>apihost</code> and <code>auth</code> <code>seed-default-owprops</code> is automatically created from <code>seed-defaults</code> or it can be manually set</p>
+                    </dd>
+                    <dt data-property-name="contextFrom" class="has-description">
+                      <span class="json-property-name">contextFrom:</span>
+                      <span class="json-property-type">
+                        <span class="">
+                          <a class="json-schema-ref" href="#/definitions/io.k8s.api.core.v1.SecretEnvSource">io.k8s.api.core.v1.SecretEnvSource</a>
+                        </span>
+                      </span>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </dt>
+                    <dd>
+                      <p>Reference to a secret representing where to deploy this entity Default is <code>seed-default-owprops</code> The secret must defines these fields: apihost (string) : The OpenWhisk host auth (string): the authorization key cert (string): the client certificate (optional) insecure (bool): Whether or not to bypass certificate checking (optional, default is false)</p>
+                    </dd>
+                    <dt data-property-name="name" class="has-description">
+                      <span class="json-property-name">name:</span>
+                      <span class="json-property-type">string</span>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </dt>
+                    <dd>
+                      <p>Composition name. Override metadata.name. Does not include the package name (see below)</p>
+                    </dd>
+                    <dt data-property-name="package" class="has-description">
+                      <span class="json-property-name">package:</span>
+                      <span class="json-property-type">string</span>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </dt>
+                    <dd>
+                      <p>Composition package name. Add it to the default package when not specified</p>
+                    </dd>
+                  </dl>
+                </section>
+              </div>
+              <div class="doc-examples">
+                <section>
+                  <h5>Example</h5>
+                  <!-- <div class="hljs"> -->
+                  <html>
+                  <head></head>
+                  <body><pre><code class="hljs language-yaml"><span class="hljs-attr">composition:</span> <span class="hljs-string">string</span>
+<span class="hljs-attr">compositionURI:</span> <span class="hljs-string">string</span>
+<span class="hljs-attr">context:</span>
+<span class="hljs-attr">  org:</span> <span class="hljs-string">string</span>
+<span class="hljs-attr">  region:</span> <span class="hljs-string">string</span>
+<span class="hljs-attr">  resourcegroup:</span> <span class="hljs-string">string</span>
+<span class="hljs-attr">  resourcelocation:</span> <span class="hljs-string">string</span>
+<span class="hljs-attr">  space:</span> <span class="hljs-string">string</span>
+<span class="hljs-attr">name:</span> <span class="hljs-string">string</span>
+<span class="hljs-attr">package:</span> <span class="hljs-string">string</span>
+</code></pre> </body>
+                  </html>
+                  <!-- </div> -->
+                </section>
+              </div>
+            </div>
+          </div>
+          <div id="definition-openwhisk.v1beta1.CompositionStatus" class="definition panel" data-traverse-target="definition-openwhisk.v1beta1.CompositionStatus">
+            <h2 class="panel-title">
+              <a name="/definitions/openwhisk.v1beta1.CompositionStatus"></a>openwhisk.v1beta1.CompositionStatus:
+              <!-- <span class="json-property-type"><span class="json-property-type">object</span>
+              <span class="json-property-range" title="Value limits"></span>
+              
+              
+              </span> -->
+            </h2>
+            <div class="doc-row">
+              <div class="doc-copy">
+                <section class="json-schema-description">
+                  <p>CompositionStatus defines the observed state of Composition</p>
+                </section>
+                <section class="json-schema-properties">
+                  <dl>
+                    <dt data-property-name="generation" class="has-description">
+                      <span class="json-property-name">generation:</span>
+                      <span class="json-property-type">integer</span>
+                      <span class="json-property-format">(int64)</span>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </dt>
+                    <dd>
+                      <p>Last synced generation. Set by the system</p>
+                    </dd>
+                    <dt data-property-name="message">
+                      <span class="json-property-name">message:</span>
+                      <span class="json-property-type">string</span>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </dt>
+                    <dt data-property-name="state">
+                      <span class="json-property-name">state:</span>
+                      <span class="json-property-type">string</span>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </dt>
+                  </dl>
+                </section>
+              </div>
+              <div class="doc-examples">
+                <section>
+                  <h5>Example</h5>
+                  <!-- <div class="hljs"> -->
+                  <html>
+                  <head></head>
+                  <body><pre><code class="hljs language-yaml"><span class="hljs-attr">generation:</span> <span class="hljs-string">integer</span> <span class="hljs-string">(int64)</span>
+<span class="hljs-attr">message:</span> <span class="hljs-string">string</span>
+<span class="hljs-attr">state:</span> <span class="hljs-string">string</span>
+</code></pre> </body>
+                  </html>
+                  <!-- </div> -->
+                </section>
+              </div>
+            </div>
+          </div>
+          <div id="definition-openwhisk.v1beta1.Function" class="definition panel" data-traverse-target="definition-openwhisk.v1beta1.Function">
+            <h2 class="panel-title">
+              <a name="/definitions/openwhisk.v1beta1.Function"></a>openwhisk.v1beta1.Function:
+              <!-- <span class="json-property-type"><span class="json-property-type">object</span>
+              <span class="json-property-range" title="Value limits"></span>
+              
+              
+              </span> -->
+            </h2>
+            <div class="doc-row">
+              <div class="doc-copy">
+                <section class="json-schema-description">
+                  <p>Function is the Schema for the functions API</p>
+                </section>
+                <section class="json-schema-properties">
+                  <dl>
+                    <dt data-property-name="apiVersion" class="has-description">
+                      <span class="json-property-name">apiVersion:</span>
+                      <span class="json-property-type">string</span>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </dt>
+                    <dd>
+                      <p>APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info:
+                        <a href="https://git.k8s.io/community/contributors/devel/api-conventions.md#resources">https://git.k8s.io/community/contributors/devel/api-conventions.md#resources</a>
+                      </p>
+                    </dd>
+                    <dt data-property-name="kind" class="has-description">
+                      <span class="json-property-name">kind:</span>
+                      <span class="json-property-type">string</span>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </dt>
+                    <dd>
+                      <p>Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info:
+                        <a href="https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds">https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds</a>
+                      </p>
+                    </dd>
+                    <dt data-property-name="metadata">
+                      <span class="json-property-name">metadata:</span>
+                      <span class="json-property-type">
+                        <span class="">
+                          <a class="json-schema-ref" href="#/definitions/meta.v1.ObjectMeta">meta.v1.ObjectMeta</a>
+                        </span>
+                      </span>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </dt>
+                    <dt data-property-name="spec">
+                      <span class="json-property-name">spec:</span>
+                      <span class="json-property-type">
+                        <span class="">
+                          <a class="json-schema-ref" href="#/definitions/openwhisk.v1beta1.FunctionSpec">openwhisk.v1beta1.FunctionSpec</a>
+                        </span>
+                      </span>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </dt>
+                    <dt data-property-name="status">
+                      <span class="json-property-name">status:</span>
+                      <span class="json-property-type">
+                        <span class="">
+                          <a class="json-schema-ref" href="#/definitions/openwhisk.v1beta1.FunctionStatus">openwhisk.v1beta1.FunctionStatus</a>
+                        </span>
+                      </span>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </dt>
+                  </dl>
+                </section>
+              </div>
+              <div class="doc-examples">
+                <section>
+                  <h5>Example</h5>
+                  <!-- <div class="hljs"> -->
+                  <html>
+                  <head></head>
+                  <body><pre><code class="hljs language-yaml"><span class="hljs-attr">apiVersion:</span> <span class="hljs-string">openwhisk.seed.ibm.com/v1beta1</span>
+<span class="hljs-attr">kind:</span> <span class="hljs-string">Function</span>
+<span class="hljs-attr">metadata:</span>
+<span class="hljs-attr">  name:</span> <span class="hljs-string">myfunction</span>
+<span class="hljs-attr">  namespace:</span> <span class="hljs-string">default</span>
+<span class="hljs-attr">spec:</span>
+<span class="hljs-attr">  codeURI:</span> <span class="hljs-string">&gt;-</span>
+<span class="hljs-attr">    https:</span><span class="hljs-string">//raw.githubusercontent.com/apache/incubator-openwhisk-catalog/master/packages/utils/echo.js</span>
+<span class="hljs-attr">  parameters:</span>
+<span class="hljs-attr">    - name:</span> <span class="hljs-string">message</span>
+<span class="hljs-attr">      value:</span> <span class="hljs-string">Hello</span> <span class="hljs-string">World</span>
+<span class="hljs-attr">  runtime:</span> <span class="hljs-string">&apos;nodejs:6&apos;</span>
+</code></pre> </body>
+                  </html>
+                  <!-- </div> -->
+                </section>
+              </div>
+            </div>
+          </div>
+          <div id="definition-openwhisk.v1beta1.FunctionList" class="definition panel" data-traverse-target="definition-openwhisk.v1beta1.FunctionList">
+            <h2 class="panel-title">
+              <a name="/definitions/openwhisk.v1beta1.FunctionList"></a>openwhisk.v1beta1.FunctionList:
+              <!-- <span class="json-property-type"><span class="json-property-type">object</span>
+              <span class="json-property-range" title="Value limits"></span>
+              
+              
+              </span> -->
+            </h2>
+            <div class="doc-row">
+              <div class="doc-copy">
+                <section class="json-schema-description">
+                  <p>FunctionList contains a list of Function</p>
+                </section>
+                <section class="json-schema-properties">
+                  <dl>
+                    <dt data-property-name="apiVersion" class="has-description">
+                      <span class="json-property-name">apiVersion:</span>
+                      <span class="json-property-type">string</span>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </dt>
+                    <dd>
+                      <p>APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info:
+                        <a href="https://git.k8s.io/community/contributors/devel/api-conventions.md#resources">https://git.k8s.io/community/contributors/devel/api-conventions.md#resources</a>
+                      </p>
+                    </dd>
+                    <dt data-property-name="items">
+                      <span class="json-property-name">items:</span>
+                      <span class="json-property-type">
+                        <span class="json-schema-ref-array">
+                          <a class="json-schema-ref" href="#/definitions/openwhisk.v1beta1.Function">openwhisk.v1beta1.Function</a>
+                        </span>
+                      </span>
+                      <span class="json-property-range" title="Value limits"></span>
+                      <span class="json-property-required"></span>
+                    </dt>
+                    <dt class="json-inner-schema">
+                      <section class="json-schema-array-items">
+                        <span class="json-property-type">
+                          <span class="">
+                            <a class="json-schema-ref" href="#/definitions/openwhisk.v1beta1.Function">openwhisk.v1beta1.Function</a>
+                          </span>
+                        </span>
+                        <span class="json-property-range" title="Value limits"></span>
+                        <div class="json-inner-schema"> </div>
+                      </section>
+                    </dt>
+                    <dt data-property-name="kind" class="has-description">
+                      <span class="json-property-name">kind:</span>
+                      <span class="json-property-type">string</span>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </dt>
+                    <dd>
+                      <p>Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info:
+                        <a href="https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds">https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds</a>
+                      </p>
+                    </dd>
+                    <dt data-property-name="metadata">
+                      <span class="json-property-name">metadata:</span>
+                      <span class="json-property-type">
+                        <span class="">
+                          <a class="json-schema-ref" href="#/definitions/meta.v1.ListMeta">meta.v1.ListMeta</a>
+                        </span>
+                      </span>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </dt>
+                  </dl>
+                </section>
+              </div>
+              <div class="doc-examples">
+                <section>
+                  <h5>Example</h5>
+                  <!-- <div class="hljs"> -->
+                  <html>
+                  <head></head>
+                  <body><pre><code class="hljs language-yaml"><span class="hljs-attr">apiVersion:</span> <span class="hljs-string">string</span>
+<span class="hljs-attr">items:</span>
+<span class="hljs-attr">  - apiVersion:</span> <span class="hljs-string">openwhisk.seed.ibm.com/v1beta1</span>
+<span class="hljs-attr">    kind:</span> <span class="hljs-string">Function</span>
+<span class="hljs-attr">    metadata:</span>
+<span class="hljs-attr">      name:</span> <span class="hljs-string">myfunction</span>
+<span class="hljs-attr">      namespace:</span> <span class="hljs-string">default</span>
+<span class="hljs-attr">    spec:</span>
+<span class="hljs-attr">      codeURI:</span> <span class="hljs-string">&gt;-</span>
+<span class="hljs-attr">        https:</span><span class="hljs-string">//raw.githubusercontent.com/apache/incubator-openwhisk-catalog/master/packages/utils/echo.js</span>
+<span class="hljs-attr">      parameters:</span>
+<span class="hljs-attr">        - name:</span> <span class="hljs-string">message</span>
+<span class="hljs-attr">          value:</span> <span class="hljs-string">Hello</span> <span class="hljs-string">World</span>
+<span class="hljs-attr">      runtime:</span> <span class="hljs-string">&apos;nodejs:6&apos;</span>
+<span class="hljs-attr">kind:</span> <span class="hljs-string">string</span>
+</code></pre> </body>
+                  </html>
+                  <!-- </div> -->
+                </section>
+              </div>
+            </div>
+          </div>
+          <div id="definition-openwhisk.v1beta1.FunctionSpec" class="definition panel" data-traverse-target="definition-openwhisk.v1beta1.FunctionSpec">
+            <h2 class="panel-title">
+              <a name="/definitions/openwhisk.v1beta1.FunctionSpec"></a>openwhisk.v1beta1.FunctionSpec:
+              <!-- <span class="json-property-type"><span class="json-property-type">object</span>
+              <span class="json-property-range" title="Value limits"></span>
+              
+              
+              </span> -->
+            </h2>
+            <div class="doc-row">
+              <div class="doc-copy">
+                <section class="json-schema-description">
+                  <p>FunctionSpec represents the specification for Function resources</p>
+                </section>
+                <section class="json-schema-properties">
+                  <dl>
+                    <dt data-property-name="annotations" class="has-description">
+                      <span class="json-property-name">annotations:</span>
+                      <span class="json-property-type">
+                        <span class="json-schema-ref-array">
+                          <a class="json-schema-ref" href="#/definitions/keyvalue.v1.KeyValue">keyvalue.v1.KeyValue</a>
+                        </span>
+                      </span>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </dt>
+                    <dd>
+                      <p>List of key/value annotations</p>
+                    </dd>
+                    <dt class="json-inner-schema">
+                      <section class="json-schema-array-items">
+                        <span class="json-property-type">
+                          <span class="">
+                            <a class="json-schema-ref" href="#/definitions/keyvalue.v1.KeyValue">keyvalue.v1.KeyValue</a>
+                          </span>
+                        </span>
+                        <span class="json-property-range" title="Value limits"></span>
+                        <div class="json-inner-schema"> </div>
+                      </section>
+                    </dt>
+                    <dt data-property-name="code" class="has-description">
+                      <span class="json-property-name">code:</span>
+                      <span class="json-property-type">string</span>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </dt>
+                    <dd>
+                      <p>The inline code to deploy.</p>
+                    </dd>
+                    <dt data-property-name="codeURI" class="has-description">
+                      <span class="json-property-name">codeURI:</span>
+                      <span class="json-property-type">string</span>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </dt>
+                    <dd>
+                      <p>The location of the code to deploy. Support <code>http(s)</code> and <code>file</code> protocols.</p>
+                    </dd>
+                    <dt data-property-name="context" class="has-description">
+                      <span class="json-property-name">context:</span>
+                      <span class="json-property-type">
+                        <span class="">
+                          <a class="json-schema-ref" href="#/definitions/lib.ibmcloud.v1.ResourceContext">lib.ibmcloud.v1.ResourceContext</a>
+                        </span>
+                      </span>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </dt>
+                    <dd>
+                      <p>Where to deploy the function. If not specified, the controller reads the wsk properties from <code>seed-default-owprops</code> secret in the resource namespace. This secret must defined two keys, <code>apihost</code> and <code>auth</code> <code>seed-default-owprops</code> is automatically created from <code>seed-defaults</code> or it can be manually set</p>
+                    </dd>
+                    <dt data-property-name="contextFrom" class="has-description">
+                      <span class="json-property-name">contextFrom:</span>
+                      <span class="json-property-type">
+                        <span class="">
+                          <a class="json-schema-ref" href="#/definitions/io.k8s.api.core.v1.SecretEnvSource">io.k8s.api.core.v1.SecretEnvSource</a>
+                        </span>
+                      </span>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </dt>
+                    <dd>
+                      <p>Reference to a secret representing where to deploy this entity Default is <code>seed-default-owprops</code> The secret must defines these fields: apihost (string) : The OpenWhisk host auth (string): the authorization key cert (string): the client certificate (optional) insecure (bool): Whether or not to bypass certificate checking (optional, default is false)</p>
+                    </dd>
+                    <dt data-property-name="docker" class="has-description">
+                      <span class="json-property-name">docker:</span>
+                      <span class="json-property-type">string</span>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </dt>
+                    <dd>
+                      <p>Docker image identifier (in dockerhub). More info:
+                        <a href="https://github.com/apache/incubator-openwhisk/blob/master/docs/actions-docker.md">https://github.com/apache/incubator-openwhisk/blob/master/docs/actions-docker.md</a>
+                      </p>
+                    </dd>
+                    <dt data-property-name="functions" class="has-description">
+                      <span class="json-property-name">functions:</span>
+                      <span class="json-property-type">string</span>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </dt>
+                    <dd>
+                      <p>Comma separated sequence of actions. Only valid when <code>runtime</code> is <code>sequence</code></p>
+                    </dd>
+                    <dt data-property-name="limits" class="has-description">
+                      <span class="json-property-name">limits:</span>
+                      <span class="json-property-type">
+                        <span class="">
+                          <a class="json-schema-ref" href="#/definitions/openwhisk.v1beta1.Limits">openwhisk.v1beta1.Limits</a>
+                        </span>
+                      </span>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </dt>
+                    <dd>
+                      <p>Sets the action limits. More info:
+                        <a href="https://github.com/apache/incubator-openwhisk/blob/master/docs/reference.md#system-limits">https://github.com/apache/incubator-openwhisk/blob/master/docs/reference.md#system-limits</a>
+                      </p>
+                    </dd>
+                    <dt data-property-name="main" class="has-description">
+                      <span class="json-property-name">main:</span>
+                      <span class="json-property-type">string</span>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </dt>
+                    <dd>
+                      <p>The name of the action entry point (function or fully-qualified method name when applicable)</p>
+                    </dd>
+                    <dt data-property-name="name" class="has-description">
+                      <span class="json-property-name">name:</span>
+                      <span class="json-property-type">string</span>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </dt>
+                    <dd>
+                      <p>Action name. Override metadata.name. Does not include the package name (see below)</p>
+                    </dd>
+                    <dt data-property-name="native" class="has-description">
+                      <span class="json-property-name">native:</span>
+                      <span class="json-property-type">boolean</span>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </dt>
+                    <dd>
+                      <p>Run the action as native. More info:
+                        <a href="https://github.com/apache/incubator-openwhisk/blob/master/docs/actions-docker.md#creating-native-actions">https://github.com/apache/incubator-openwhisk/blob/master/docs/actions-docker.md#creating-native-actions</a>
+                      </p>
+                    </dd>
+                    <dt data-property-name="package" class="has-description">
+                      <span class="json-property-name">package:</span>
+                      <span class="json-property-type">string</span>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </dt>
+                    <dd>
+                      <p>Action package name. Add it to the default package when not specified</p>
+                    </dd>
+                    <dt data-property-name="parameters" class="has-description">
+                      <span class="json-property-name">parameters:</span>
+                      <span class="json-property-type">
+                        <span class="json-schema-ref-array">
+                          <a class="json-schema-ref" href="#/definitions/keyvalue.v1.KeyValue">keyvalue.v1.KeyValue</a>
+                        </span>
+                      </span>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </dt>
+                    <dd>
+                      <p>List of key/value input parameters</p>
+                    </dd>
+                    <dt class="json-inner-schema">
+                      <section class="json-schema-array-items">
+                        <span class="json-property-type">
+                          <span class="">
+                            <a class="json-schema-ref" href="#/definitions/keyvalue.v1.KeyValue">keyvalue.v1.KeyValue</a>
+                          </span>
+                        </span>
+                        <span class="json-property-range" title="Value limits"></span>
+                        <div class="json-inner-schema"> </div>
+                      </section>
+                    </dt>
+                    <dt data-property-name="rawHTTP" class="has-description">
+                      <span class="json-property-name">rawHTTP:</span>
+                      <span class="json-property-type">boolean</span>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </dt>
+                    <dd>
+                      <p>Indicates if the function is able to consume the raw contents within the body of an HTTP request. Only valid when <code>webExport</code> is <code>true</code>. More info:
+                        <a href="https://github.com/apache/incubator-openwhisk/blob/master/docs/webactions.md#raw-http-handling">https://github.com/apache/incubator-openwhisk/blob/master/docs/webactions.md#raw-http-handling</a>
+                      </p>
+                    </dd>
+                    <dt data-property-name="runtime" class="has-description">
+                      <span class="json-property-name">runtime:</span>
+                      <span class="json-property-type">string</span>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </dt>
+                    <dd>
+                      <p>Runtime name and optional version. More info:
+                        <a href="https://github.com/apache/incubator-openwhisk/blob/master/docs/actions.md#languages-and-runtimes">https://github.com/apache/incubator-openwhisk/blob/master/docs/actions.md#languages-and-runtimes</a>
+                      </p>
+                      <p>Support these runtimes (not an exhaustive live):</p>
+                      <table>
+                        <thead>
+                          <tr>
+                            <th>Runtime</th>
+                            <th>image name</th>
+                            <th>Description</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>app</td>
+                            <td>N/A</td>
+                            <td>runs a function composition</td>
+                          </tr>
+                          <tr>
+                            <td>sequence</td>
+                            <td>N/A</td>
+                            <td>runs a function sequence</td>
+                          </tr>
+                          <tr>
+                            <td>nodejs</td>
+                            <td>nodejsaction:latest</td>
+                            <td>Latest NodeJS runtime</td>
+                          </tr>
+                          <tr>
+                            <td>nodejs:6</td>
+                            <td>nodejs6action:latest</td>
+                            <td>Latest NodeJS 6 runtime</td>
+                          </tr>
+                          <tr>
+                            <td>java</td>
+                            <td>java8action:latest</td>
+                            <td>Latest Java language runtime</td>
+                          </tr>
+                          <tr>
+                            <td>python:2</td>
+                            <td>python2action:latest</td>
+                            <td>Latest Python 2 language runtime</td>
+                          </tr>
+                          <tr>
+                            <td>python:3</td>
+                            <td>python3action:latest</td>
+                            <td>Latest Python 3 language runtime</td>
+                          </tr>
+                          <tr>
+                            <td>swift</td>
+                            <td>swiftaction:latest</td>
+                            <td>Latest Swift 2 language runtime</td>
+                          </tr>
+                          <tr>
+                            <td>swift:3</td>
+                            <td>swift3action:latest</td>
+                            <td>Latest Swift 3 language runtime</td>
+                          </tr>
+                          <tr>
+                            <td>swift:3.1.1</td>
+                            <td>action-swift-v3.1.1:latest</td>
+                            <td>Latest Swift 3.1.1 language runtime</td>
+                          </tr>
+                          <tr>
+                            <td>php:7.1</td>
+                            <td>action-php-v7.1:latest</td>
+                            <td>Latest PHP language runtime</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </dd>
+                    <dt data-property-name="webExport" class="has-description">
+                      <span class="json-property-name">webExport:</span>
+                      <span class="json-property-type">boolean</span>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </dt>
+                    <dd>
+                      <p>Turns the function into a &quot;web action&quot; causing it to return HTTP content without use of an API Gateway. More info:
+                        <a href="https://github.com/apache/incubator-openwhisk/blob/master/docs/webactions.md">https://github.com/apache/incubator-openwhisk/blob/master/docs/webactions.md</a>
+                      </p>
+                    </dd>
+                  </dl>
+                </section>
+              </div>
+              <div class="doc-examples">
+                <section>
+                  <h5>Example</h5>
+                  <!-- <div class="hljs"> -->
+                  <html>
+                  <head></head>
+                  <body><pre><code class="hljs language-yaml"><span class="hljs-attr">annotations:</span>
+<span class="hljs-attr">  - attributes:</span> <span class="hljs-string">object</span>
+<span class="hljs-attr">    name:</span> <span class="hljs-string">string</span>
+<span class="hljs-attr">    valueFrom:</span> <span class="hljs-string">{}</span>
+<span class="hljs-attr">code:</span> <span class="hljs-string">string</span>
+<span class="hljs-attr">codeURI:</span> <span class="hljs-string">string</span>
+<span class="hljs-attr">context:</span>
+<span class="hljs-attr">  org:</span> <span class="hljs-string">string</span>
+<span class="hljs-attr">  region:</span> <span class="hljs-string">string</span>
+<span class="hljs-attr">  resourcegroup:</span> <span class="hljs-string">string</span>
+<span class="hljs-attr">  resourcelocation:</span> <span class="hljs-string">string</span>
+<span class="hljs-attr">  space:</span> <span class="hljs-string">string</span>
+<span class="hljs-attr">docker:</span> <span class="hljs-string">string</span>
+<span class="hljs-attr">functions:</span> <span class="hljs-string">string</span>
+<span class="hljs-attr">limits:</span>
+<span class="hljs-attr">  logSize:</span> <span class="hljs-string">integer</span> <span class="hljs-string">(int32)</span>
+<span class="hljs-attr">  memory:</span> <span class="hljs-string">integer</span> <span class="hljs-string">(int32)</span>
+<span class="hljs-attr">  timeout:</span> <span class="hljs-string">integer</span> <span class="hljs-string">(int32)</span>
+<span class="hljs-attr">main:</span> <span class="hljs-string">string</span>
+<span class="hljs-attr">name:</span> <span class="hljs-string">string</span>
+<span class="hljs-attr">native:</span> <span class="hljs-string">boolean</span>
+<span class="hljs-attr">package:</span> <span class="hljs-string">string</span>
+<span class="hljs-attr">parameters:</span>
+<span class="hljs-attr">  - attributes:</span> <span class="hljs-string">object</span>
+<span class="hljs-attr">    name:</span> <span class="hljs-string">string</span>
+<span class="hljs-attr">    valueFrom:</span> <span class="hljs-string">{}</span>
+<span class="hljs-attr">rawHTTP:</span> <span class="hljs-string">boolean</span>
+<span class="hljs-attr">runtime:</span> <span class="hljs-string">string</span>
+<span class="hljs-attr">webExport:</span> <span class="hljs-string">boolean</span>
+</code></pre> </body>
+                  </html>
+                  <!-- </div> -->
+                </section>
+              </div>
+            </div>
+          </div>
+          <div id="definition-openwhisk.v1beta1.FunctionStatus" class="definition panel" data-traverse-target="definition-openwhisk.v1beta1.FunctionStatus">
+            <h2 class="panel-title">
+              <a name="/definitions/openwhisk.v1beta1.FunctionStatus"></a>openwhisk.v1beta1.FunctionStatus:
+              <!-- <span class="json-property-type"><span class="json-property-type">object</span>
+              <span class="json-property-range" title="Value limits"></span>
+              
+              
+              </span> -->
+            </h2>
+            <div class="doc-row">
+              <div class="doc-copy">
+                <section class="json-schema-description">
+                  <p>FunctionStatus defines the observed state of Function</p>
+                </section>
+                <section class="json-schema-properties">
+                  <dl>
+                    <dt data-property-name="generation" class="has-description">
+                      <span class="json-property-name">generation:</span>
+                      <span class="json-property-type">integer</span>
+                      <span class="json-property-format">(int64)</span>
+                      <span class="json-property-range" title="Value limits"></span>
+                      <span class="json-property-required"></span>
+                    </dt>
+                    <dd>
+                      <p>Last synced generation. Set by the system</p>
+                    </dd>
+                    <dt data-property-name="message">
+                      <span class="json-property-name">message:</span>
+                      <span class="json-property-type">string</span>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </dt>
+                    <dt data-property-name="state">
+                      <span class="json-property-name">state:</span>
+                      <span class="json-property-type">string</span>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </dt>
+                  </dl>
+                </section>
+              </div>
+              <div class="doc-examples">
+                <section>
+                  <h5>Example</h5>
+                  <!-- <div class="hljs"> -->
+                  <html>
+                  <head></head>
+                  <body><pre><code class="hljs language-yaml"><span class="hljs-attr">generation:</span> <span class="hljs-string">integer</span> <span class="hljs-string">(int64)</span>
+<span class="hljs-attr">message:</span> <span class="hljs-string">string</span>
+<span class="hljs-attr">state:</span> <span class="hljs-string">string</span>
+</code></pre> </body>
+                  </html>
+                  <!-- </div> -->
+                </section>
+              </div>
+            </div>
+          </div>
+          <div id="definition-openwhisk.v1beta1.Invocation" class="definition panel" data-traverse-target="definition-openwhisk.v1beta1.Invocation">
+            <h2 class="panel-title">
+              <a name="/definitions/openwhisk.v1beta1.Invocation"></a>openwhisk.v1beta1.Invocation:
+              <!-- <span class="json-property-type"><span class="json-property-type">object</span>
+              <span class="json-property-range" title="Value limits"></span>
+              
+              
+              </span> -->
+            </h2>
+            <div class="doc-row">
+              <div class="doc-copy">
+                <section class="json-schema-description">
+                  <p>Invocation is the Schema for the invocations API</p>
+                </section>
+                <section class="json-schema-properties">
+                  <dl>
+                    <dt data-property-name="apiVersion" class="has-description">
+                      <span class="json-property-name">apiVersion:</span>
+                      <span class="json-property-type">string</span>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </dt>
+                    <dd>
+                      <p>APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info:
+                        <a href="https://git.k8s.io/community/contributors/devel/api-conventions.md#resources">https://git.k8s.io/community/contributors/devel/api-conventions.md#resources</a>
+                      </p>
+                    </dd>
+                    <dt data-property-name="kind" class="has-description">
+                      <span class="json-property-name">kind:</span>
+                      <span class="json-property-type">string</span>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </dt>
+                    <dd>
+                      <p>Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info:
+                        <a href="https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds">https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds</a>
+                      </p>
+                    </dd>
+                    <dt data-property-name="metadata">
+                      <span class="json-property-name">metadata:</span>
+                      <span class="json-property-type">
+                        <span class="">
+                          <a class="json-schema-ref" href="#/definitions/meta.v1.ObjectMeta">meta.v1.ObjectMeta</a>
+                        </span>
+                      </span>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </dt>
+                    <dt data-property-name="spec">
+                      <span class="json-property-name">spec:</span>
+                      <span class="json-property-type">
+                        <span class="">
+                          <a class="json-schema-ref" href="#/definitions/openwhisk.v1beta1.InvocationSpec">openwhisk.v1beta1.InvocationSpec</a>
+                        </span>
+                      </span>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </dt>
+                    <dt data-property-name="status">
+                      <span class="json-property-name">status:</span>
+                      <span class="json-property-type">
+                        <span class="">
+                          <a class="json-schema-ref" href="#/definitions/openwhisk.v1beta1.InvocationStatus">openwhisk.v1beta1.InvocationStatus</a>
+                        </span>
+                      </span>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </dt>
+                  </dl>
+                </section>
+              </div>
+              <div class="doc-examples">
+                <section>
+                  <h5>Example</h5>
+                  <!-- <div class="hljs"> -->
+                  <html>
+                  <head></head>
+                  <body><pre><code class="hljs language-yaml"><span class="hljs-attr">apiVersion:</span> <span class="hljs-string">openwhisk.seed.ibm.com/v1beta1</span>
+<span class="hljs-attr">kind:</span> <span class="hljs-string">Invocation</span>
+<span class="hljs-attr">metadata:</span>
+<span class="hljs-attr">  name:</span> <span class="hljs-string">echo-invocation</span>
+<span class="hljs-attr">spec:</span>
+<span class="hljs-attr">  finalizer:</span>
+<span class="hljs-attr">    function:</span> <span class="hljs-string">/whisk.system/utils/echo</span>
+<span class="hljs-attr">    parameters:</span>
+<span class="hljs-attr">      - name:</span> <span class="hljs-string">message</span>
+<span class="hljs-attr">        value:</span> <span class="hljs-string">Bye</span> <span class="hljs-string">World</span>
+<span class="hljs-attr">  function:</span> <span class="hljs-string">/whisk.system/utils/echo</span>
+<span class="hljs-attr">  parameters:</span>
+<span class="hljs-attr">    - name:</span> <span class="hljs-string">message</span>
+<span class="hljs-attr">      value:</span> <span class="hljs-string">Hello</span> <span class="hljs-string">World</span>
+</code></pre> </body>
+                  </html>
+                  <!-- </div> -->
+                </section>
+              </div>
+            </div>
+          </div>
+          <div id="definition-openwhisk.v1beta1.InvocationFinalizer" class="definition panel" data-traverse-target="definition-openwhisk.v1beta1.InvocationFinalizer">
+            <h2 class="panel-title">
+              <a name="/definitions/openwhisk.v1beta1.InvocationFinalizer"></a>openwhisk.v1beta1.InvocationFinalizer:
+              <!-- <span class="json-property-type"><span class="json-property-type">object</span>
+              <span class="json-property-range" title="Value limits"></span>
+              
+              
+              </span> -->
+            </h2>
+            <div class="doc-row">
+              <div class="doc-copy">
+                <section class="json-schema-description">
+                  <p>InvocationFinalizer defines the function to invoke when deleting the function invocation</p>
+                </section>
+                <section class="json-schema-properties">
+                  <dl>
+                    <dt data-property-name="function" class="has-description">
+                      <span class="json-property-name">function:</span>
+                      <span class="json-property-type">string</span>
+                      <span class="json-property-range" title="Value limits"></span>
+                      <span class="json-property-required"></span>
+                    </dt>
+                    <dd>
+                      <p>Function defines the name of the function to invoke (eg. <code>/whisk.system/utils/echo</code> or <code>myfunction</code>) Invokes the function in the invocation context when the name is not fully qualified</p>
+                    </dd>
+                    <dt data-property-name="parameters" class="has-description">
+                      <span class="json-property-name">parameters:</span>
+                      <span class="json-property-type">
+                        <span class="json-schema-ref-array">
+                          <a class="json-schema-ref" href="#/definitions/keyvalue.v1.KeyValue">keyvalue.v1.KeyValue</a>
+                        </span>
+                      </span>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </dt>
+                    <dd>
+                      <p>Parameters defines the list of parameters to use for the invocation</p>
+                    </dd>
+                    <dt class="json-inner-schema">
+                      <section class="json-schema-array-items">
+                        <span class="json-property-type">
+                          <span class="">
+                            <a class="json-schema-ref" href="#/definitions/keyvalue.v1.KeyValue">keyvalue.v1.KeyValue</a>
+                          </span>
+                        </span>
+                        <span class="json-property-range" title="Value limits"></span>
+                        <div class="json-inner-schema"> </div>
+                      </section>
+                    </dt>
+                  </dl>
+                </section>
+              </div>
+              <div class="doc-examples">
+                <section>
+                  <h5>Example</h5>
+                  <!-- <div class="hljs"> -->
+                  <html>
+                  <head></head>
+                  <body><pre><code class="hljs language-yaml"><span class="hljs-attr">function:</span> <span class="hljs-string">string</span>
+<span class="hljs-attr">parameters:</span>
+<span class="hljs-attr">  - attributes:</span> <span class="hljs-string">object</span>
+<span class="hljs-attr">    name:</span> <span class="hljs-string">string</span>
+<span class="hljs-attr">    valueFrom:</span> <span class="hljs-string">{}</span>
+</code></pre> </body>
+                  </html>
+                  <!-- </div> -->
+                </section>
+              </div>
+            </div>
+          </div>
+          <div id="definition-openwhisk.v1beta1.InvocationList" class="definition panel" data-traverse-target="definition-openwhisk.v1beta1.InvocationList">
+            <h2 class="panel-title">
+              <a name="/definitions/openwhisk.v1beta1.InvocationList"></a>openwhisk.v1beta1.InvocationList:
+              <!-- <span class="json-property-type"><span class="json-property-type">object</span>
+              <span class="json-property-range" title="Value limits"></span>
+              
+              
+              </span> -->
+            </h2>
+            <div class="doc-row">
+              <div class="doc-copy">
+                <section class="json-schema-description">
+                  <p>InvocationList contains a list of Invocation</p>
+                </section>
+                <section class="json-schema-properties">
+                  <dl>
+                    <dt data-property-name="apiVersion" class="has-description">
+                      <span class="json-property-name">apiVersion:</span>
+                      <span class="json-property-type">string</span>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </dt>
+                    <dd>
+                      <p>APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info:
+                        <a href="https://git.k8s.io/community/contributors/devel/api-conventions.md#resources">https://git.k8s.io/community/contributors/devel/api-conventions.md#resources</a>
+                      </p>
+                    </dd>
+                    <dt data-property-name="items">
+                      <span class="json-property-name">items:</span>
+                      <span class="json-property-type">
+                        <span class="json-schema-ref-array">
+                          <a class="json-schema-ref" href="#/definitions/openwhisk.v1beta1.Invocation">openwhisk.v1beta1.Invocation</a>
+                        </span>
+                      </span>
+                      <span class="json-property-range" title="Value limits"></span>
+                      <span class="json-property-required"></span>
+                    </dt>
+                    <dt class="json-inner-schema">
+                      <section class="json-schema-array-items">
+                        <span class="json-property-type">
+                          <span class="">
+                            <a class="json-schema-ref" href="#/definitions/openwhisk.v1beta1.Invocation">openwhisk.v1beta1.Invocation</a>
+                          </span>
+                        </span>
+                        <span class="json-property-range" title="Value limits"></span>
+                        <div class="json-inner-schema"> </div>
+                      </section>
+                    </dt>
+                    <dt data-property-name="kind" class="has-description">
+                      <span class="json-property-name">kind:</span>
+                      <span class="json-property-type">string</span>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </dt>
+                    <dd>
+                      <p>Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info:
+                        <a href="https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds">https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds</a>
+                      </p>
+                    </dd>
+                    <dt data-property-name="metadata">
+                      <span class="json-property-name">metadata:</span>
+                      <span class="json-property-type">
+                        <span class="">
+                          <a class="json-schema-ref" href="#/definitions/meta.v1.ListMeta">meta.v1.ListMeta</a>
+                        </span>
+                      </span>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </dt>
+                  </dl>
+                </section>
+              </div>
+              <div class="doc-examples">
+                <section>
+                  <h5>Example</h5>
+                  <!-- <div class="hljs"> -->
+                  <html>
+                  <head></head>
+                  <body><pre><code class="hljs language-yaml"><span class="hljs-attr">apiVersion:</span> <span class="hljs-string">string</span>
+<span class="hljs-attr">items:</span>
+<span class="hljs-attr">  - apiVersion:</span> <span class="hljs-string">openwhisk.seed.ibm.com/v1beta1</span>
+<span class="hljs-attr">    kind:</span> <span class="hljs-string">Invocation</span>
+<span class="hljs-attr">    metadata:</span>
+<span class="hljs-attr">      name:</span> <span class="hljs-string">echo-invocation</span>
+<span class="hljs-attr">    spec:</span>
+<span class="hljs-attr">      finalizer:</span>
+<span class="hljs-attr">        function:</span> <span class="hljs-string">/whisk.system/utils/echo</span>
+<span class="hljs-attr">        parameters:</span>
+<span class="hljs-attr">          - name:</span> <span class="hljs-string">message</span>
+<span class="hljs-attr">            value:</span> <span class="hljs-string">Bye</span> <span class="hljs-string">World</span>
+<span class="hljs-attr">      function:</span> <span class="hljs-string">/whisk.system/utils/echo</span>
+<span class="hljs-attr">      parameters:</span>
+<span class="hljs-attr">        - name:</span> <span class="hljs-string">message</span>
+<span class="hljs-attr">          value:</span> <span class="hljs-string">Hello</span> <span class="hljs-string">World</span>
+<span class="hljs-attr">kind:</span> <span class="hljs-string">string</span>
+</code></pre> </body>
+                  </html>
+                  <!-- </div> -->
+                </section>
+              </div>
+            </div>
+          </div>
+          <div id="definition-openwhisk.v1beta1.InvocationSpec" class="definition panel" data-traverse-target="definition-openwhisk.v1beta1.InvocationSpec">
+            <h2 class="panel-title">
+              <a name="/definitions/openwhisk.v1beta1.InvocationSpec"></a>openwhisk.v1beta1.InvocationSpec:
+              <!-- <span class="json-property-type"><span class="json-property-type">object</span>
+              <span class="json-property-range" title="Value limits"></span>
+              
+              
+              </span> -->
+            </h2>
+            <div class="doc-row">
+              <div class="doc-copy">
+                <section class="json-schema-description">
+                  <p>InvocationSpec defines the desired state of Invocation</p>
+                </section>
+                <section class="json-schema-properties">
+                  <dl>
+                    <dt data-property-name="context" class="has-description">
+                      <span class="json-property-name">context:</span>
+                      <span class="json-property-type">
+                        <span class="">
+                          <a class="json-schema-ref" href="#/definitions/lib.ibmcloud.v1.ResourceContext">lib.ibmcloud.v1.ResourceContext</a>
+                        </span>
+                      </span>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </dt>
+                    <dd>
+                      <p>Where to deploy the invocation. If not specified, the controller reads the wsk properties from <code>seed-default-owprops</code> secret in the resource namespace. This secret must defined two keys, <code>apihost</code> and <code>auth</code> <code>seed-default-owprops</code> is automatically created from <code>seed-defaults</code> or it can be manually set</p>
+                    </dd>
+                    <dt data-property-name="contextFrom" class="has-description">
+                      <span class="json-property-name">contextFrom:</span>
+                      <span class="json-property-type">
+                        <span class="">
+                          <a class="json-schema-ref" href="#/definitions/io.k8s.api.core.v1.SecretEnvSource">io.k8s.api.core.v1.SecretEnvSource</a>
+                        </span>
+                      </span>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </dt>
+                    <dd>
+                      <p>Reference to a secret representing where to deploy this entity Default is <code>seed-default-owprops</code> The secret must defines these fields: apihost (string) : The OpenWhisk host auth (string): the authorization key cert (string): the client certificate (optional) insecure (bool): Whether or not to bypass certificate checking (optional, default is false)</p>
+                    </dd>
+                    <dt data-property-name="finalizer" class="has-description">
+                      <span class="json-property-name">finalizer:</span>
+                      <span class="json-property-type">
+                        <span class="">
+                          <a class="json-schema-ref" href="#/definitions/openwhisk.v1beta1.InvocationFinalizer">openwhisk.v1beta1.InvocationFinalizer</a>
+                        </span>
+                      </span>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </dt>
+                    <dd>
+                      <p>Defines the function to invoke when this resource is deleted.</p>
+                    </dd>
+                    <dt data-property-name="function" class="has-description">
+                      <span class="json-property-name">function:</span>
+                      <span class="json-property-type">string</span>
+                      <span class="json-property-range" title="Value limits"></span>
+                      <span class="json-property-required"></span>
+                    </dt>
+                    <dd>
+                      <p>defines the name of function to invoke (eg. <code>/whisk.system/utils/echo</code> or <code>myfunction</code>) Invokes the function in the invocation context when the name is not fully qualified</p>
+                    </dd>
+                    <dt data-property-name="parameters" class="has-description">
+                      <span class="json-property-name">parameters:</span>
+                      <span class="json-property-type">
+                        <span class="json-schema-ref-array">
+                          <a class="json-schema-ref" href="#/definitions/keyvalue.v1.KeyValue">keyvalue.v1.KeyValue</a>
+                        </span>
+                      </span>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </dt>
+                    <dd>
+                      <p>Defines the list of parameters to use for the invocation</p>
+                    </dd>
+                    <dt class="json-inner-schema">
+                      <section class="json-schema-array-items">
+                        <span class="json-property-type">
+                          <span class="">
+                            <a class="json-schema-ref" href="#/definitions/keyvalue.v1.KeyValue">keyvalue.v1.KeyValue</a>
+                          </span>
+                        </span>
+                        <span class="json-property-range" title="Value limits"></span>
+                        <div class="json-inner-schema"> </div>
+                      </section>
+                    </dt>
+                    <dt data-property-name="to" class="has-description">
+                      <span class="json-property-name">to:</span>
+                      <span class="json-property-type">
+                        <span class="">
+                          <a class="json-schema-ref" href="#/definitions/openwhisk.v1beta1.InvocationTarget">openwhisk.v1beta1.InvocationTarget</a>
+                        </span>
+                      </span>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </dt>
+                    <dd>
+                      <p>Defines where to store the invocation result. Discard the result when not specified.</p>
+                    </dd>
+                  </dl>
+                </section>
+              </div>
+              <div class="doc-examples">
+                <section>
+                  <h5>Example</h5>
+                  <!-- <div class="hljs"> -->
+                  <html>
+                  <head></head>
+                  <body><pre><code class="hljs language-yaml"><span class="hljs-attr">context:</span>
+<span class="hljs-attr">  org:</span> <span class="hljs-string">string</span>
+<span class="hljs-attr">  region:</span> <span class="hljs-string">string</span>
+<span class="hljs-attr">  resourcegroup:</span> <span class="hljs-string">string</span>
+<span class="hljs-attr">  resourcelocation:</span> <span class="hljs-string">string</span>
+<span class="hljs-attr">  space:</span> <span class="hljs-string">string</span>
+<span class="hljs-attr">finalizer:</span>
+<span class="hljs-attr">  function:</span> <span class="hljs-string">string</span>
+<span class="hljs-attr">  parameters:</span>
+<span class="hljs-attr">    - attributes:</span> <span class="hljs-string">object</span>
+<span class="hljs-attr">      name:</span> <span class="hljs-string">string</span>
+<span class="hljs-attr">      valueFrom:</span> <span class="hljs-string">{}</span>
+<span class="hljs-attr">function:</span> <span class="hljs-string">string</span>
+<span class="hljs-attr">parameters:</span>
+<span class="hljs-attr">  - attributes:</span> <span class="hljs-string">object</span>
+<span class="hljs-attr">    name:</span> <span class="hljs-string">string</span>
+<span class="hljs-attr">    valueFrom:</span> <span class="hljs-string">{}</span>
+<span class="hljs-attr">to:</span>
+<span class="hljs-attr">  projection:</span> <span class="hljs-string">&apos;{@.response.result.message}&apos;</span>
+<span class="hljs-attr">  secretKeyRef:</span>
+<span class="hljs-attr">    key:</span> <span class="hljs-string">secret-key</span>
+<span class="hljs-attr">    name:</span> <span class="hljs-string">secret-name</span>
+</code></pre> </body>
+                  </html>
+                  <!-- </div> -->
+                </section>
+              </div>
+            </div>
+          </div>
+          <div id="definition-openwhisk.v1beta1.InvocationStatus" class="definition panel" data-traverse-target="definition-openwhisk.v1beta1.InvocationStatus">
+            <h2 class="panel-title">
+              <a name="/definitions/openwhisk.v1beta1.InvocationStatus"></a>openwhisk.v1beta1.InvocationStatus:
+              <!-- <span class="json-property-type"><span class="json-property-type">object</span>
+              <span class="json-property-range" title="Value limits"></span>
+              
+              
+              </span> -->
+            </h2>
+            <div class="doc-row">
+              <div class="doc-copy">
+                <section class="json-schema-description">
+                  <p>InvocationStatus defines the observed state of Invocation</p>
+                </section>
+                <section class="json-schema-properties">
+                  <dl>
+                    <dt data-property-name="generation" class="has-description">
+                      <span class="json-property-name">generation:</span>
+                      <span class="json-property-type">integer</span>
+                      <span class="json-property-format">(int64)</span>
+                      <span class="json-property-range" title="Value limits"></span>
+                      <span class="json-property-required"></span>
+                    </dt>
+                    <dd>
+                      <p>Last synced generation. Set by the system</p>
+                    </dd>
+                    <dt data-property-name="message">
+                      <span class="json-property-name">message:</span>
+                      <span class="json-property-type">string</span>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </dt>
+                    <dt data-property-name="state">
+                      <span class="json-property-name">state:</span>
+                      <span class="json-property-type">string</span>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </dt>
+                  </dl>
+                </section>
+              </div>
+              <div class="doc-examples">
+                <section>
+                  <h5>Example</h5>
+                  <!-- <div class="hljs"> -->
+                  <html>
+                  <head></head>
+                  <body><pre><code class="hljs language-yaml"><span class="hljs-attr">generation:</span> <span class="hljs-string">integer</span> <span class="hljs-string">(int64)</span>
+<span class="hljs-attr">message:</span> <span class="hljs-string">string</span>
+<span class="hljs-attr">state:</span> <span class="hljs-string">string</span>
+</code></pre> </body>
+                  </html>
+                  <!-- </div> -->
+                </section>
+              </div>
+            </div>
+          </div>
+          <div id="definition-openwhisk.v1beta1.InvocationTarget" class="definition panel" data-traverse-target="definition-openwhisk.v1beta1.InvocationTarget">
+            <h2 class="panel-title">
+              <a name="/definitions/openwhisk.v1beta1.InvocationTarget"></a>openwhisk.v1beta1.InvocationTarget:
+              <!-- <span class="json-property-type"><span class="json-property-type">object</span>
+              <span class="json-property-range" title="Value limits"></span>
+              
+              
+              </span> -->
+            </h2>
+            <div class="doc-row">
+              <div class="doc-copy">
+                <section class="json-schema-description">
+                  <p>InvocationTarget represents where to store the invocation result</p>
+                </section>
+                <section class="json-schema-properties">
+                  <dl>
+                    <dt data-property-name="configMapKeyRef" class="has-description">
+                      <span class="json-property-name">configMapKeyRef:</span>
+                      <span class="json-property-type">
+                        <span class="">
+                          <a class="json-schema-ref" href="#/definitions/io.k8s.api.core.v1.ConfigMapKeySelector">io.k8s.api.core.v1.ConfigMapKeySelector</a>
+                        </span>
+                      </span>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </dt>
+                    <dd>
+                      <p>Selects a key of a ConfigMap.</p>
+                    </dd>
+                    <dt data-property-name="projection" class="has-description">
+                      <span class="json-property-name">projection:</span>
+                      <span class="json-property-type">string</span>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </dt>
+                    <dd>
+                      <p>JSONPath template selecting parts of the invocation result to store. Default is &quot;{@.response.result}&quot; More info:
+                        <a href="https://kubernetes.io/docs/reference/kubectl/jsonpath/">https://kubernetes.io/docs/reference/kubectl/jsonpath/</a>
+                      </p>
+                    </dd>
+                    <dt data-property-name="secretKeyRef" class="has-description">
+                      <span class="json-property-name">secretKeyRef:</span>
+                      <span class="json-property-type">
+                        <span class="">
+                          <a class="json-schema-ref" href="#/definitions/io.k8s.api.core.v1.SecretKeySelector">io.k8s.api.core.v1.SecretKeySelector</a>
+                        </span>
+                      </span>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </dt>
+                    <dd>
+                      <p>Selects a key of a secret in the invocation namespace</p>
+                    </dd>
+                  </dl>
+                </section>
+              </div>
+              <div class="doc-examples">
+                <section>
+                  <h5>Example</h5>
+                  <!-- <div class="hljs"> -->
+                  <html>
+                  <head></head>
+                  <body><pre><code class="hljs language-yaml"><span class="hljs-attr">projection:</span> <span class="hljs-string">&apos;{@.response.result.message}&apos;</span>
+<span class="hljs-attr">secretKeyRef:</span>
+<span class="hljs-attr">  key:</span> <span class="hljs-string">secret-key</span>
+<span class="hljs-attr">  name:</span> <span class="hljs-string">secret-name</span>
+</code></pre> </body>
+                  </html>
+                  <!-- </div> -->
+                </section>
+              </div>
+            </div>
+          </div>
+          <div id="definition-openwhisk.v1beta1.Limits" class="definition panel" data-traverse-target="definition-openwhisk.v1beta1.Limits">
+            <h2 class="panel-title">
+              <a name="/definitions/openwhisk.v1beta1.Limits"></a>openwhisk.v1beta1.Limits:
+              <!-- <span class="json-property-type"><span class="json-property-type">object</span>
+              <span class="json-property-range" title="Value limits"></span>
+              
+              
+              </span> -->
+            </h2>
+            <div class="doc-row">
+              <div class="doc-copy">
+                <section class="json-schema-description">
+                  <p>Limits is used to express function resources constraints such as memory limits or timeout</p>
+                </section>
+                <section class="json-schema-properties">
+                  <dl>
+                    <dt data-property-name="logSize" class="has-description">
+                      <span class="json-property-name">logSize:</span>
+                      <span class="json-property-type">integer</span>
+                      <span class="json-property-format">(int32)</span>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </dt>
+                    <dd>
+                      <p>The action log size. Default unit is assumed to be in megabytes (MB).</p>
+                    </dd>
+                    <dt data-property-name="memory" class="has-description">
+                      <span class="json-property-name">memory:</span>
+                      <span class="json-property-type">integer</span>
+                      <span class="json-property-format">(int32)</span>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </dt>
+                    <dd>
+                      <p>The per-Action memory. Default unit is assumed to be in megabytes (MB).</p>
+                    </dd>
+                    <dt data-property-name="timeout" class="has-description">
+                      <span class="json-property-name">timeout:</span>
+                      <span class="json-property-type">integer</span>
+                      <span class="json-property-format">(int32)</span>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </dt>
+                    <dd>
+                      <p>The per-invocation Action timeout. Default unit is assumed to be milliseconds (ms).</p>
+                    </dd>
+                  </dl>
+                </section>
+              </div>
+              <div class="doc-examples">
+                <section>
+                  <h5>Example</h5>
+                  <!-- <div class="hljs"> -->
+                  <html>
+                  <head></head>
+                  <body><pre><code class="hljs language-yaml"><span class="hljs-attr">logSize:</span> <span class="hljs-string">integer</span> <span class="hljs-string">(int32)</span>
+<span class="hljs-attr">memory:</span> <span class="hljs-string">integer</span> <span class="hljs-string">(int32)</span>
+<span class="hljs-attr">timeout:</span> <span class="hljs-string">integer</span> <span class="hljs-string">(int32)</span>
+</code></pre> </body>
+                  </html>
+                  <!-- </div> -->
+                </section>
+              </div>
+            </div>
+          </div>
+          <div id="definition-openwhisk.v1beta1.Package" class="definition panel" data-traverse-target="definition-openwhisk.v1beta1.Package">
+            <h2 class="panel-title">
+              <a name="/definitions/openwhisk.v1beta1.Package"></a>openwhisk.v1beta1.Package:
+              <!-- <span class="json-property-type"><span class="json-property-type">object</span>
+              <span class="json-property-range" title="Value limits"></span>
+              
+              
+              </span> -->
+            </h2>
+            <div class="doc-row">
+              <div class="doc-copy">
+                <section class="json-schema-description">
+                  <p>Package is the Schema for the packages API</p>
+                </section>
+                <section class="json-schema-properties">
+                  <dl>
+                    <dt data-property-name="apiVersion" class="has-description">
+                      <span class="json-property-name">apiVersion:</span>
+                      <span class="json-property-type">string</span>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </dt>
+                    <dd>
+                      <p>APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info:
+                        <a href="https://git.k8s.io/community/contributors/devel/api-conventions.md#resources">https://git.k8s.io/community/contributors/devel/api-conventions.md#resources</a>
+                      </p>
+                    </dd>
+                    <dt data-property-name="kind" class="has-description">
+                      <span class="json-property-name">kind:</span>
+                      <span class="json-property-type">string</span>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </dt>
+                    <dd>
+                      <p>Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info:
+                        <a href="https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds">https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds</a>
+                      </p>
+                    </dd>
+                    <dt data-property-name="metadata">
+                      <span class="json-property-name">metadata:</span>
+                      <span class="json-property-type">
+                        <span class="">
+                          <a class="json-schema-ref" href="#/definitions/meta.v1.ObjectMeta">meta.v1.ObjectMeta</a>
+                        </span>
+                      </span>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </dt>
+                    <dt data-property-name="spec">
+                      <span class="json-property-name">spec:</span>
+                      <span class="json-property-type">
+                        <span class="">
+                          <a class="json-schema-ref" href="#/definitions/openwhisk.v1beta1.PackageSpec">openwhisk.v1beta1.PackageSpec</a>
+                        </span>
+                      </span>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </dt>
+                    <dt data-property-name="status">
+                      <span class="json-property-name">status:</span>
+                      <span class="json-property-type">
+                        <span class="">
+                          <a class="json-schema-ref" href="#/definitions/openwhisk.v1beta1.PackageStatus">openwhisk.v1beta1.PackageStatus</a>
+                        </span>
+                      </span>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </dt>
+                  </dl>
+                </section>
+              </div>
+              <div class="doc-examples">
+                <section>
+                  <h5>Example</h5>
+                  <!-- <div class="hljs"> -->
+                  <html>
+                  <head></head>
+                  <body><pre><code class="hljs language-yaml"><span class="hljs-attr">apiVersion:</span> <span class="hljs-string">openwhisk.seed.ibm.com/v1beta1</span>
+<span class="hljs-attr">kind:</span> <span class="hljs-string">Package</span>
+<span class="hljs-attr">metadata:</span>
+<span class="hljs-attr">  name:</span> <span class="hljs-string">mh-publish</span>
+<span class="hljs-attr">spec:</span>
+<span class="hljs-attr">  bind:</span> <span class="hljs-string">/whisk.system/messaging</span>
+<span class="hljs-attr">  service:</span> <span class="hljs-string">message-hub</span>
+</code></pre> </body>
+                  </html>
+                  <!-- </div> -->
+                </section>
+              </div>
+            </div>
+          </div>
+          <div id="definition-openwhisk.v1beta1.PackageList" class="definition panel" data-traverse-target="definition-openwhisk.v1beta1.PackageList">
+            <h2 class="panel-title">
+              <a name="/definitions/openwhisk.v1beta1.PackageList"></a>openwhisk.v1beta1.PackageList:
+              <!-- <span class="json-property-type"><span class="json-property-type">object</span>
+              <span class="json-property-range" title="Value limits"></span>
+              
+              
+              </span> -->
+            </h2>
+            <div class="doc-row">
+              <div class="doc-copy">
+                <section class="json-schema-description">
+                  <p>PackageList contains a list of Package</p>
+                </section>
+                <section class="json-schema-properties">
+                  <dl>
+                    <dt data-property-name="apiVersion" class="has-description">
+                      <span class="json-property-name">apiVersion:</span>
+                      <span class="json-property-type">string</span>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </dt>
+                    <dd>
+                      <p>APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info:
+                        <a href="https://git.k8s.io/community/contributors/devel/api-conventions.md#resources">https://git.k8s.io/community/contributors/devel/api-conventions.md#resources</a>
+                      </p>
+                    </dd>
+                    <dt data-property-name="items">
+                      <span class="json-property-name">items:</span>
+                      <span class="json-property-type">
+                        <span class="json-schema-ref-array">
+                          <a class="json-schema-ref" href="#/definitions/openwhisk.v1beta1.Package">openwhisk.v1beta1.Package</a>
+                        </span>
+                      </span>
+                      <span class="json-property-range" title="Value limits"></span>
+                      <span class="json-property-required"></span>
+                    </dt>
+                    <dt class="json-inner-schema">
+                      <section class="json-schema-array-items">
+                        <span class="json-property-type">
+                          <span class="">
+                            <a class="json-schema-ref" href="#/definitions/openwhisk.v1beta1.Package">openwhisk.v1beta1.Package</a>
+                          </span>
+                        </span>
+                        <span class="json-property-range" title="Value limits"></span>
+                        <div class="json-inner-schema"> </div>
+                      </section>
+                    </dt>
+                    <dt data-property-name="kind" class="has-description">
+                      <span class="json-property-name">kind:</span>
+                      <span class="json-property-type">string</span>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </dt>
+                    <dd>
+                      <p>Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info:
+                        <a href="https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds">https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds</a>
+                      </p>
+                    </dd>
+                    <dt data-property-name="metadata">
+                      <span class="json-property-name">metadata:</span>
+                      <span class="json-property-type">
+                        <span class="">
+                          <a class="json-schema-ref" href="#/definitions/meta.v1.ListMeta">meta.v1.ListMeta</a>
+                        </span>
+                      </span>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </dt>
+                  </dl>
+                </section>
+              </div>
+              <div class="doc-examples">
+                <section>
+                  <h5>Example</h5>
+                  <!-- <div class="hljs"> -->
+                  <html>
+                  <head></head>
+                  <body><pre><code class="hljs language-yaml"><span class="hljs-attr">apiVersion:</span> <span class="hljs-string">string</span>
+<span class="hljs-attr">items:</span>
+<span class="hljs-attr">  - apiVersion:</span> <span class="hljs-string">openwhisk.seed.ibm.com/v1beta1</span>
+<span class="hljs-attr">    kind:</span> <span class="hljs-string">Package</span>
+<span class="hljs-attr">    metadata:</span>
+<span class="hljs-attr">      name:</span> <span class="hljs-string">mh-publish</span>
+<span class="hljs-attr">    spec:</span>
+<span class="hljs-attr">      bind:</span> <span class="hljs-string">/whisk.system/messaging</span>
+<span class="hljs-attr">      service:</span> <span class="hljs-string">message-hub</span>
+<span class="hljs-attr">kind:</span> <span class="hljs-string">string</span>
+</code></pre> </body>
+                  </html>
+                  <!-- </div> -->
+                </section>
+              </div>
+            </div>
+          </div>
+          <div id="definition-openwhisk.v1beta1.PackageSpec" class="definition panel" data-traverse-target="definition-openwhisk.v1beta1.PackageSpec">
+            <h2 class="panel-title">
+              <a name="/definitions/openwhisk.v1beta1.PackageSpec"></a>openwhisk.v1beta1.PackageSpec:
+              <!-- <span class="json-property-type"><span class="json-property-type">object</span>
+              <span class="json-property-range" title="Value limits"></span>
+              
+              
+              </span> -->
+            </h2>
+            <div class="doc-row">
+              <div class="doc-copy">
+                <section class="json-schema-description">
+                  <p>PackageSpec defines the desired state of Package</p>
+                </section>
+                <section class="json-schema-properties">
+                  <dl>
+                    <dt data-property-name="annotations" class="has-description">
+                      <span class="json-property-name">annotations:</span>
+                      <span class="json-property-type">
+                        <span class="json-schema-ref-array">
+                          <a class="json-schema-ref" href="#/definitions/keyvalue.v1.KeyValue">keyvalue.v1.KeyValue</a>
+                        </span>
+                      </span>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </dt>
+                    <dd>
+                      <p>List of key/value annotations</p>
+                    </dd>
+                    <dt class="json-inner-schema">
+                      <section class="json-schema-array-items">
+                        <span class="json-property-type">
+                          <span class="">
+                            <a class="json-schema-ref" href="#/definitions/keyvalue.v1.KeyValue">keyvalue.v1.KeyValue</a>
+                          </span>
+                        </span>
+                        <span class="json-property-range" title="Value limits"></span>
+                        <div class="json-inner-schema"> </div>
+                      </section>
+                    </dt>
+                    <dt data-property-name="bind" class="has-description">
+                      <span class="json-property-name">bind:</span>
+                      <span class="json-property-type">string</span>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </dt>
+                    <dd>
+                      <p>Name of the package for which a binding should be created</p>
+                    </dd>
+                    <dt data-property-name="context" class="has-description">
+                      <span class="json-property-name">context:</span>
+                      <span class="json-property-type">
+                        <span class="">
+                          <a class="json-schema-ref" href="#/definitions/lib.ibmcloud.v1.ResourceContext">lib.ibmcloud.v1.ResourceContext</a>
+                        </span>
+                      </span>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </dt>
+                    <dd>
+                      <p>Where to deploy the package. If not specified, the controller reads the wsk properties from <code>seed-default-owprops</code> secret in the resource namespace. This secret must defined two keys, <code>apihost</code> and <code>auth</code> <code>seed-default-owprops</code> is automatically created from <code>seed-defaults</code> or it can be manually set</p>
+                    </dd>
+                    <dt data-property-name="contextFrom" class="has-description">
+                      <span class="json-property-name">contextFrom:</span>
+                      <span class="json-property-type">
+                        <span class="">
+                          <a class="json-schema-ref" href="#/definitions/io.k8s.api.core.v1.SecretEnvSource">io.k8s.api.core.v1.SecretEnvSource</a>
+                        </span>
+                      </span>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </dt>
+                    <dd>
+                      <p>Reference to a secret representing where to deploy this entity Default is <code>seed-default-owprops</code> The secret must defines these fields: apihost (string) : The OpenWhisk host auth (string): the authorization key cert (string): the client certificate (optional) insecure (bool): Whether or not to bypass certificate checking (optional, default is false)</p>
+                    </dd>
+                    <dt data-property-name="name" class="has-description">
+                      <span class="json-property-name">name:</span>
+                      <span class="json-property-type">string</span>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </dt>
+                    <dd>
+                      <p>Package name. Override metadata.name. <code>default</code> is reserved.</p>
+                    </dd>
+                    <dt data-property-name="parameters" class="has-description">
+                      <span class="json-property-name">parameters:</span>
+                      <span class="json-property-type">
+                        <span class="json-schema-ref-array">
+                          <a class="json-schema-ref" href="#/definitions/keyvalue.v1.KeyValue">keyvalue.v1.KeyValue</a>
+                        </span>
+                      </span>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </dt>
+                    <dd>
+                      <p>List of key/value input parameters</p>
+                    </dd>
+                    <dt class="json-inner-schema">
+                      <section class="json-schema-array-items">
+                        <span class="json-property-type">
+                          <span class="">
+                            <a class="json-schema-ref" href="#/definitions/keyvalue.v1.KeyValue">keyvalue.v1.KeyValue</a>
+                          </span>
+                        </span>
+                        <span class="json-property-range" title="Value limits"></span>
+                        <div class="json-inner-schema"> </div>
+                      </section>
+                    </dt>
+                    <dt data-property-name="publish" class="has-description">
+                      <span class="json-property-name">publish:</span>
+                      <span class="json-property-type">boolean</span>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </dt>
+                    <dd>
+                      <p>Package visibility; <code>true</code> for <code>shared</code>, <code>false</code> for <code>private</code></p>
+                    </dd>
+                    <dt data-property-name="service" class="has-description">
+                      <span class="json-property-name">service:</span>
+                      <span class="json-property-type">string</span>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </dt>
+                    <dd>
+                      <p>indicates a cloud service resource which you want to bind to. This feature provides automatic injection of service keys into the binding parameters (for example user, password, urls)</p>
+                    </dd>
+                  </dl>
+                </section>
+              </div>
+              <div class="doc-examples">
+                <section>
+                  <h5>Example</h5>
+                  <!-- <div class="hljs"> -->
+                  <html>
+                  <head></head>
+                  <body><pre><code class="hljs language-yaml"><span class="hljs-attr">annotations:</span>
+<span class="hljs-attr">  - attributes:</span> <span class="hljs-string">object</span>
+<span class="hljs-attr">    name:</span> <span class="hljs-string">string</span>
+<span class="hljs-attr">    valueFrom:</span> <span class="hljs-string">{}</span>
+<span class="hljs-attr">bind:</span> <span class="hljs-string">string</span>
+<span class="hljs-attr">context:</span>
+<span class="hljs-attr">  org:</span> <span class="hljs-string">string</span>
+<span class="hljs-attr">  region:</span> <span class="hljs-string">string</span>
+<span class="hljs-attr">  resourcegroup:</span> <span class="hljs-string">string</span>
+<span class="hljs-attr">  resourcelocation:</span> <span class="hljs-string">string</span>
+<span class="hljs-attr">  space:</span> <span class="hljs-string">string</span>
+<span class="hljs-attr">name:</span> <span class="hljs-string">string</span>
+<span class="hljs-attr">parameters:</span>
+<span class="hljs-attr">  - attributes:</span> <span class="hljs-string">object</span>
+<span class="hljs-attr">    name:</span> <span class="hljs-string">string</span>
+<span class="hljs-attr">    valueFrom:</span> <span class="hljs-string">{}</span>
+<span class="hljs-attr">publish:</span> <span class="hljs-string">boolean</span>
+<span class="hljs-attr">service:</span> <span class="hljs-string">string</span>
+</code></pre> </body>
+                  </html>
+                  <!-- </div> -->
+                </section>
+              </div>
+            </div>
+          </div>
+          <div id="definition-openwhisk.v1beta1.PackageStatus" class="definition panel" data-traverse-target="definition-openwhisk.v1beta1.PackageStatus">
+            <h2 class="panel-title">
+              <a name="/definitions/openwhisk.v1beta1.PackageStatus"></a>openwhisk.v1beta1.PackageStatus:
+              <!-- <span class="json-property-type"><span class="json-property-type">object</span>
+              <span class="json-property-range" title="Value limits"></span>
+              
+              
+              </span> -->
+            </h2>
+            <div class="doc-row">
+              <div class="doc-copy">
+                <section class="json-schema-description">
+                  <p>PackageStatus defines the observed state of Package</p>
+                </section>
+                <section class="json-schema-properties">
+                  <dl>
+                    <dt data-property-name="generation" class="has-description">
+                      <span class="json-property-name">generation:</span>
+                      <span class="json-property-type">integer</span>
+                      <span class="json-property-format">(int64)</span>
+                      <span class="json-property-range" title="Value limits"></span>
+                      <span class="json-property-required"></span>
+                    </dt>
+                    <dd>
+                      <p>Last synced generation. Set by the system</p>
+                    </dd>
+                    <dt data-property-name="message">
+                      <span class="json-property-name">message:</span>
+                      <span class="json-property-type">string</span>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </dt>
+                    <dt data-property-name="state">
+                      <span class="json-property-name">state:</span>
+                      <span class="json-property-type">string</span>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </dt>
+                  </dl>
+                </section>
+              </div>
+              <div class="doc-examples">
+                <section>
+                  <h5>Example</h5>
+                  <!-- <div class="hljs"> -->
+                  <html>
+                  <head></head>
+                  <body><pre><code class="hljs language-yaml"><span class="hljs-attr">generation:</span> <span class="hljs-string">integer</span> <span class="hljs-string">(int64)</span>
+<span class="hljs-attr">message:</span> <span class="hljs-string">string</span>
+<span class="hljs-attr">state:</span> <span class="hljs-string">string</span>
+</code></pre> </body>
+                  </html>
+                  <!-- </div> -->
+                </section>
+              </div>
+            </div>
+          </div>
+          <div id="definition-openwhisk.v1beta1.Rule" class="definition panel" data-traverse-target="definition-openwhisk.v1beta1.Rule">
+            <h2 class="panel-title">
+              <a name="/definitions/openwhisk.v1beta1.Rule"></a>openwhisk.v1beta1.Rule:
+              <!-- <span class="json-property-type"><span class="json-property-type">object</span>
+              <span class="json-property-range" title="Value limits"></span>
+              
+              
+              </span> -->
+            </h2>
+            <div class="doc-row">
+              <div class="doc-copy">
+                <section class="json-schema-description">
+                  <p>Rule is the Schema for the rules API</p>
+                </section>
+                <section class="json-schema-properties">
+                  <dl>
+                    <dt data-property-name="apiVersion" class="has-description">
+                      <span class="json-property-name">apiVersion:</span>
+                      <span class="json-property-type">string</span>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </dt>
+                    <dd>
+                      <p>APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info:
+                        <a href="https://git.k8s.io/community/contributors/devel/api-conventions.md#resources">https://git.k8s.io/community/contributors/devel/api-conventions.md#resources</a>
+                      </p>
+                    </dd>
+                    <dt data-property-name="kind" class="has-description">
+                      <span class="json-property-name">kind:</span>
+                      <span class="json-property-type">string</span>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </dt>
+                    <dd>
+                      <p>Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info:
+                        <a href="https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds">https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds</a>
+                      </p>
+                    </dd>
+                    <dt data-property-name="metadata">
+                      <span class="json-property-name">metadata:</span>
+                      <span class="json-property-type">
+                        <span class="">
+                          <a class="json-schema-ref" href="#/definitions/meta.v1.ObjectMeta">meta.v1.ObjectMeta</a>
+                        </span>
+                      </span>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </dt>
+                    <dt data-property-name="spec">
+                      <span class="json-property-name">spec:</span>
+                      <span class="json-property-type">
+                        <span class="">
+                          <a class="json-schema-ref" href="#/definitions/openwhisk.v1beta1.RuleSpec">openwhisk.v1beta1.RuleSpec</a>
+                        </span>
+                      </span>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </dt>
+                    <dt data-property-name="status">
+                      <span class="json-property-name">status:</span>
+                      <span class="json-property-type">
+                        <span class="">
+                          <a class="json-schema-ref" href="#/definitions/openwhisk.v1beta1.RuleStatus">openwhisk.v1beta1.RuleStatus</a>
+                        </span>
+                      </span>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </dt>
+                  </dl>
+                </section>
+              </div>
+              <div class="doc-examples">
+                <section>
+                  <h5>Example</h5>
+                  <!-- <div class="hljs"> -->
+                  <html>
+                  <head></head>
+                  <body><pre><code class="hljs language-yaml"><span class="hljs-attr">apiVersion:</span> <span class="hljs-string">openwhisk.seed.ibm.com/v1beta1</span>
+<span class="hljs-attr">kind:</span> <span class="hljs-string">Rule</span>
+<span class="hljs-attr">metadata:</span>
+<span class="hljs-attr">  name:</span> <span class="hljs-string">my-rule</span>
+<span class="hljs-attr">spec:</span>
+<span class="hljs-attr">  action:</span> <span class="hljs-string">hello-world</span>
+<span class="hljs-attr">  trigger:</span> <span class="hljs-string">image-uploaded</span>
+</code></pre> </body>
+                  </html>
+                  <!-- </div> -->
+                </section>
+              </div>
+            </div>
+          </div>
+          <div id="definition-openwhisk.v1beta1.RuleList" class="definition panel" data-traverse-target="definition-openwhisk.v1beta1.RuleList">
+            <h2 class="panel-title">
+              <a name="/definitions/openwhisk.v1beta1.RuleList"></a>openwhisk.v1beta1.RuleList:
+              <!-- <span class="json-property-type"><span class="json-property-type">object</span>
+              <span class="json-property-range" title="Value limits"></span>
+              
+              
+              </span> -->
+            </h2>
+            <div class="doc-row">
+              <div class="doc-copy">
+                <section class="json-schema-description">
+                  <p>RuleList contains a list of Rule</p>
+                </section>
+                <section class="json-schema-properties">
+                  <dl>
+                    <dt data-property-name="apiVersion" class="has-description">
+                      <span class="json-property-name">apiVersion:</span>
+                      <span class="json-property-type">string</span>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </dt>
+                    <dd>
+                      <p>APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info:
+                        <a href="https://git.k8s.io/community/contributors/devel/api-conventions.md#resources">https://git.k8s.io/community/contributors/devel/api-conventions.md#resources</a>
+                      </p>
+                    </dd>
+                    <dt data-property-name="items">
+                      <span class="json-property-name">items:</span>
+                      <span class="json-property-type">
+                        <span class="json-schema-ref-array">
+                          <a class="json-schema-ref" href="#/definitions/openwhisk.v1beta1.Rule">openwhisk.v1beta1.Rule</a>
+                        </span>
+                      </span>
+                      <span class="json-property-range" title="Value limits"></span>
+                      <span class="json-property-required"></span>
+                    </dt>
+                    <dt class="json-inner-schema">
+                      <section class="json-schema-array-items">
+                        <span class="json-property-type">
+                          <span class="">
+                            <a class="json-schema-ref" href="#/definitions/openwhisk.v1beta1.Rule">openwhisk.v1beta1.Rule</a>
+                          </span>
+                        </span>
+                        <span class="json-property-range" title="Value limits"></span>
+                        <div class="json-inner-schema"> </div>
+                      </section>
+                    </dt>
+                    <dt data-property-name="kind" class="has-description">
+                      <span class="json-property-name">kind:</span>
+                      <span class="json-property-type">string</span>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </dt>
+                    <dd>
+                      <p>Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info:
+                        <a href="https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds">https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds</a>
+                      </p>
+                    </dd>
+                    <dt data-property-name="metadata">
+                      <span class="json-property-name">metadata:</span>
+                      <span class="json-property-type">
+                        <span class="">
+                          <a class="json-schema-ref" href="#/definitions/meta.v1.ListMeta">meta.v1.ListMeta</a>
+                        </span>
+                      </span>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </dt>
+                  </dl>
+                </section>
+              </div>
+              <div class="doc-examples">
+                <section>
+                  <h5>Example</h5>
+                  <!-- <div class="hljs"> -->
+                  <html>
+                  <head></head>
+                  <body><pre><code class="hljs language-yaml"><span class="hljs-attr">apiVersion:</span> <span class="hljs-string">string</span>
+<span class="hljs-attr">items:</span>
+<span class="hljs-attr">  - apiVersion:</span> <span class="hljs-string">openwhisk.seed.ibm.com/v1beta1</span>
+<span class="hljs-attr">    kind:</span> <span class="hljs-string">Rule</span>
+<span class="hljs-attr">    metadata:</span>
+<span class="hljs-attr">      name:</span> <span class="hljs-string">my-rule</span>
+<span class="hljs-attr">    spec:</span>
+<span class="hljs-attr">      action:</span> <span class="hljs-string">hello-world</span>
+<span class="hljs-attr">      trigger:</span> <span class="hljs-string">image-uploaded</span>
+<span class="hljs-attr">kind:</span> <span class="hljs-string">string</span>
+</code></pre> </body>
+                  </html>
+                  <!-- </div> -->
+                </section>
+              </div>
+            </div>
+          </div>
+          <div id="definition-openwhisk.v1beta1.RuleSpec" class="definition panel" data-traverse-target="definition-openwhisk.v1beta1.RuleSpec">
+            <h2 class="panel-title">
+              <a name="/definitions/openwhisk.v1beta1.RuleSpec"></a>openwhisk.v1beta1.RuleSpec:
+              <!-- <span class="json-property-type"><span class="json-property-type">object</span>
+              <span class="json-property-range" title="Value limits"></span>
+              
+              
+              </span> -->
+            </h2>
+            <div class="doc-row">
+              <div class="doc-copy">
+                <section class="json-schema-description">
+                  <p>RuleSpec defines the desired state of Rule</p>
+                </section>
+                <section class="json-schema-properties">
+                  <dl>
+                    <dt data-property-name="context" class="has-description">
+                      <span class="json-property-name">context:</span>
+                      <span class="json-property-type">
+                        <span class="">
+                          <a class="json-schema-ref" href="#/definitions/lib.ibmcloud.v1.ResourceContext">lib.ibmcloud.v1.ResourceContext</a>
+                        </span>
+                      </span>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </dt>
+                    <dd>
+                      <p>Where to deploy the rule. If not specified, the controller reads the wsk properties from <code>seed-default-owprops</code> secret in the resource namespace. This secret must defined two keys, <code>apihost</code> and <code>auth</code> <code>seed-default-owprops</code> is automatically created from <code>seed-defaults</code> or it can be manually set</p>
+                    </dd>
+                    <dt data-property-name="contextFrom" class="has-description">
+                      <span class="json-property-name">contextFrom:</span>
+                      <span class="json-property-type">
+                        <span class="">
+                          <a class="json-schema-ref" href="#/definitions/io.k8s.api.core.v1.SecretEnvSource">io.k8s.api.core.v1.SecretEnvSource</a>
+                        </span>
+                      </span>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </dt>
+                    <dd>
+                      <p>Reference to a secret representing where to deploy this entity Default is <code>seed-default-owprops</code> The secret must defines these fields: apihost (string) : The OpenWhisk host auth (string): the authorization key cert (string): the client certificate (optional) insecure (bool): Whether or not to bypass certificate checking (optional, default is false)</p>
+                    </dd>
+                    <dt data-property-name="function" class="has-description">
+                      <span class="json-property-name">function:</span>
+                      <span class="json-property-type">string</span>
+                      <span class="json-property-range" title="Value limits"></span>
+                      <span class="json-property-required"></span>
+                    </dt>
+                    <dd>
+                      <p>Name of the action the rule applies to</p>
+                    </dd>
+                    <dt data-property-name="name" class="has-description">
+                      <span class="json-property-name">name:</span>
+                      <span class="json-property-type">string</span>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </dt>
+                    <dd>
+                      <p>Rule name. Override metadata.name.</p>
+                    </dd>
+                    <dt data-property-name="trigger" class="has-description">
+                      <span class="json-property-name">trigger:</span>
+                      <span class="json-property-type">string</span>
+                      <span class="json-property-range" title="Value limits"></span>
+                      <span class="json-property-required"></span>
+                    </dt>
+                    <dd>
+                      <p>Name of the trigger the Rule applies to</p>
+                    </dd>
+                  </dl>
+                </section>
+              </div>
+              <div class="doc-examples">
+                <section>
+                  <h5>Example</h5>
+                  <!-- <div class="hljs"> -->
+                  <html>
+                  <head></head>
+                  <body><pre><code class="hljs language-yaml"><span class="hljs-attr">context:</span>
+<span class="hljs-attr">  org:</span> <span class="hljs-string">string</span>
+<span class="hljs-attr">  region:</span> <span class="hljs-string">string</span>
+<span class="hljs-attr">  resourcegroup:</span> <span class="hljs-string">string</span>
+<span class="hljs-attr">  resourcelocation:</span> <span class="hljs-string">string</span>
+<span class="hljs-attr">  space:</span> <span class="hljs-string">string</span>
+<span class="hljs-attr">function:</span> <span class="hljs-string">string</span>
+<span class="hljs-attr">name:</span> <span class="hljs-string">string</span>
+<span class="hljs-attr">trigger:</span> <span class="hljs-string">string</span>
+</code></pre> </body>
+                  </html>
+                  <!-- </div> -->
+                </section>
+              </div>
+            </div>
+          </div>
+          <div id="definition-openwhisk.v1beta1.RuleStatus" class="definition panel" data-traverse-target="definition-openwhisk.v1beta1.RuleStatus">
+            <h2 class="panel-title">
+              <a name="/definitions/openwhisk.v1beta1.RuleStatus"></a>openwhisk.v1beta1.RuleStatus:
+              <!-- <span class="json-property-type"><span class="json-property-type">object</span>
+              <span class="json-property-range" title="Value limits"></span>
+              
+              
+              </span> -->
+            </h2>
+            <div class="doc-row">
+              <div class="doc-copy">
+                <section class="json-schema-description">
+                  <p>RuleStatus defines the observed state of Rule</p>
+                </section>
+                <section class="json-schema-properties">
+                  <dl>
+                    <dt data-property-name="generation" class="has-description">
+                      <span class="json-property-name">generation:</span>
+                      <span class="json-property-type">integer</span>
+                      <span class="json-property-format">(int64)</span>
+                      <span class="json-property-range" title="Value limits"></span>
+                      <span class="json-property-required"></span>
+                    </dt>
+                    <dd>
+                      <p>Last synced generation. Set by the system</p>
+                    </dd>
+                    <dt data-property-name="message">
+                      <span class="json-property-name">message:</span>
+                      <span class="json-property-type">string</span>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </dt>
+                    <dt data-property-name="state">
+                      <span class="json-property-name">state:</span>
+                      <span class="json-property-type">string</span>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </dt>
+                  </dl>
+                </section>
+              </div>
+              <div class="doc-examples">
+                <section>
+                  <h5>Example</h5>
+                  <!-- <div class="hljs"> -->
+                  <html>
+                  <head></head>
+                  <body><pre><code class="hljs language-yaml"><span class="hljs-attr">generation:</span> <span class="hljs-string">integer</span> <span class="hljs-string">(int64)</span>
+<span class="hljs-attr">message:</span> <span class="hljs-string">string</span>
+<span class="hljs-attr">state:</span> <span class="hljs-string">string</span>
+</code></pre> </body>
+                  </html>
+                  <!-- </div> -->
+                </section>
+              </div>
+            </div>
+          </div>
+          <div id="definition-openwhisk.v1beta1.Trigger" class="definition panel" data-traverse-target="definition-openwhisk.v1beta1.Trigger">
+            <h2 class="panel-title">
+              <a name="/definitions/openwhisk.v1beta1.Trigger"></a>openwhisk.v1beta1.Trigger:
+              <!-- <span class="json-property-type"><span class="json-property-type">object</span>
+              <span class="json-property-range" title="Value limits"></span>
+              
+              
+              </span> -->
+            </h2>
+            <div class="doc-row">
+              <div class="doc-copy">
+                <section class="json-schema-description">
+                  <p>Trigger is the Schema for the triggers API</p>
+                </section>
+                <section class="json-schema-properties">
+                  <dl>
+                    <dt data-property-name="apiVersion" class="has-description">
+                      <span class="json-property-name">apiVersion:</span>
+                      <span class="json-property-type">string</span>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </dt>
+                    <dd>
+                      <p>APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info:
+                        <a href="https://git.k8s.io/community/contributors/devel/api-conventions.md#resources">https://git.k8s.io/community/contributors/devel/api-conventions.md#resources</a>
+                      </p>
+                    </dd>
+                    <dt data-property-name="kind" class="has-description">
+                      <span class="json-property-name">kind:</span>
+                      <span class="json-property-type">string</span>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </dt>
+                    <dd>
+                      <p>Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info:
+                        <a href="https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds">https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds</a>
+                      </p>
+                    </dd>
+                    <dt data-property-name="metadata">
+                      <span class="json-property-name">metadata:</span>
+                      <span class="json-property-type">
+                        <span class="">
+                          <a class="json-schema-ref" href="#/definitions/meta.v1.ObjectMeta">meta.v1.ObjectMeta</a>
+                        </span>
+                      </span>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </dt>
+                    <dt data-property-name="spec">
+                      <span class="json-property-name">spec:</span>
+                      <span class="json-property-type">
+                        <span class="">
+                          <a class="json-schema-ref" href="#/definitions/openwhisk.v1beta1.TriggerSpec">openwhisk.v1beta1.TriggerSpec</a>
+                        </span>
+                      </span>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </dt>
+                    <dt data-property-name="status">
+                      <span class="json-property-name">status:</span>
+                      <span class="json-property-type">
+                        <span class="">
+                          <a class="json-schema-ref" href="#/definitions/openwhisk.v1beta1.TriggerStatus">openwhisk.v1beta1.TriggerStatus</a>
+                        </span>
+                      </span>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </dt>
+                  </dl>
+                </section>
+              </div>
+              <div class="doc-examples">
+                <section>
+                  <h5>Example</h5>
+                  <!-- <div class="hljs"> -->
+                  <html>
+                  <head></head>
+                  <body><pre><code class="hljs language-yaml"><span class="hljs-attr">apiVersion:</span> <span class="hljs-string">openwhisk.seed.ibm.com/v1beta1</span>
+<span class="hljs-attr">kind:</span> <span class="hljs-string">Trigger</span>
+<span class="hljs-attr">metadata:</span>
+<span class="hljs-attr">  name:</span> <span class="hljs-string">image-uploaded</span>
+<span class="hljs-attr">spec:</span>
+<span class="hljs-attr">  feed:</span> <span class="hljs-string">openwhisk-cloudant/changes</span>
+</code></pre> </body>
+                  </html>
+                  <!-- </div> -->
+                </section>
+              </div>
+            </div>
+          </div>
+          <div id="definition-openwhisk.v1beta1.TriggerList" class="definition panel" data-traverse-target="definition-openwhisk.v1beta1.TriggerList">
+            <h2 class="panel-title">
+              <a name="/definitions/openwhisk.v1beta1.TriggerList"></a>openwhisk.v1beta1.TriggerList:
+              <!-- <span class="json-property-type"><span class="json-property-type">object</span>
+              <span class="json-property-range" title="Value limits"></span>
+              
+              
+              </span> -->
+            </h2>
+            <div class="doc-row">
+              <div class="doc-copy">
+                <section class="json-schema-description">
+                  <p>TriggerList contains a list of Trigger</p>
+                </section>
+                <section class="json-schema-properties">
+                  <dl>
+                    <dt data-property-name="apiVersion" class="has-description">
+                      <span class="json-property-name">apiVersion:</span>
+                      <span class="json-property-type">string</span>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </dt>
+                    <dd>
+                      <p>APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info:
+                        <a href="https://git.k8s.io/community/contributors/devel/api-conventions.md#resources">https://git.k8s.io/community/contributors/devel/api-conventions.md#resources</a>
+                      </p>
+                    </dd>
+                    <dt data-property-name="items">
+                      <span class="json-property-name">items:</span>
+                      <span class="json-property-type">
+                        <span class="json-schema-ref-array">
+                          <a class="json-schema-ref" href="#/definitions/openwhisk.v1beta1.Trigger">openwhisk.v1beta1.Trigger</a>
+                        </span>
+                      </span>
+                      <span class="json-property-range" title="Value limits"></span>
+                      <span class="json-property-required"></span>
+                    </dt>
+                    <dt class="json-inner-schema">
+                      <section class="json-schema-array-items">
+                        <span class="json-property-type">
+                          <span class="">
+                            <a class="json-schema-ref" href="#/definitions/openwhisk.v1beta1.Trigger">openwhisk.v1beta1.Trigger</a>
+                          </span>
+                        </span>
+                        <span class="json-property-range" title="Value limits"></span>
+                        <div class="json-inner-schema"> </div>
+                      </section>
+                    </dt>
+                    <dt data-property-name="kind" class="has-description">
+                      <span class="json-property-name">kind:</span>
+                      <span class="json-property-type">string</span>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </dt>
+                    <dd>
+                      <p>Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info:
+                        <a href="https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds">https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds</a>
+                      </p>
+                    </dd>
+                    <dt data-property-name="metadata">
+                      <span class="json-property-name">metadata:</span>
+                      <span class="json-property-type">
+                        <span class="">
+                          <a class="json-schema-ref" href="#/definitions/meta.v1.ListMeta">meta.v1.ListMeta</a>
+                        </span>
+                      </span>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </dt>
+                  </dl>
+                </section>
+              </div>
+              <div class="doc-examples">
+                <section>
+                  <h5>Example</h5>
+                  <!-- <div class="hljs"> -->
+                  <html>
+                  <head></head>
+                  <body><pre><code class="hljs language-yaml"><span class="hljs-attr">apiVersion:</span> <span class="hljs-string">string</span>
+<span class="hljs-attr">items:</span>
+<span class="hljs-attr">  - apiVersion:</span> <span class="hljs-string">openwhisk.seed.ibm.com/v1beta1</span>
+<span class="hljs-attr">    kind:</span> <span class="hljs-string">Trigger</span>
+<span class="hljs-attr">    metadata:</span>
+<span class="hljs-attr">      name:</span> <span class="hljs-string">image-uploaded</span>
+<span class="hljs-attr">    spec:</span>
+<span class="hljs-attr">      feed:</span> <span class="hljs-string">openwhisk-cloudant/changes</span>
+<span class="hljs-attr">kind:</span> <span class="hljs-string">string</span>
+</code></pre> </body>
+                  </html>
+                  <!-- </div> -->
+                </section>
+              </div>
+            </div>
+          </div>
+          <div id="definition-openwhisk.v1beta1.TriggerSpec" class="definition panel" data-traverse-target="definition-openwhisk.v1beta1.TriggerSpec">
+            <h2 class="panel-title">
+              <a name="/definitions/openwhisk.v1beta1.TriggerSpec"></a>openwhisk.v1beta1.TriggerSpec:
+              <!-- <span class="json-property-type"><span class="json-property-type">object</span>
+              <span class="json-property-range" title="Value limits"></span>
+              
+              
+              </span> -->
+            </h2>
+            <div class="doc-row">
+              <div class="doc-copy">
+                <section class="json-schema-description">
+                  <p>TriggerSpec defines the desired state of Trigger</p>
+                </section>
+                <section class="json-schema-properties">
+                  <dl>
+                    <dt data-property-name="annotations" class="has-description">
+                      <span class="json-property-name">annotations:</span>
+                      <span class="json-property-type">
+                        <span class="json-schema-ref-array">
+                          <a class="json-schema-ref" href="#/definitions/keyvalue.v1.KeyValue">keyvalue.v1.KeyValue</a>
+                        </span>
+                      </span>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </dt>
+                    <dd>
+                      <p>List of key/value annotations</p>
+                    </dd>
+                    <dt class="json-inner-schema">
+                      <section class="json-schema-array-items">
+                        <span class="json-property-type">
+                          <span class="">
+                            <a class="json-schema-ref" href="#/definitions/keyvalue.v1.KeyValue">keyvalue.v1.KeyValue</a>
+                          </span>
+                        </span>
+                        <span class="json-property-range" title="Value limits"></span>
+                        <div class="json-inner-schema"> </div>
+                      </section>
+                    </dt>
+                    <dt data-property-name="context" class="has-description">
+                      <span class="json-property-name">context:</span>
+                      <span class="json-property-type">
+                        <span class="">
+                          <a class="json-schema-ref" href="#/definitions/lib.ibmcloud.v1.ResourceContext">lib.ibmcloud.v1.ResourceContext</a>
+                        </span>
+                      </span>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </dt>
+                    <dd>
+                      <p>Where to deploy the trigger. If not specified, the controller reads the wsk properties from <code>seed-default-owprops</code> secret in the resource namespace. This secret must defined two keys, <code>apihost</code> and <code>auth</code> <code>seed-default-owprops</code> is automatically created from <code>seed-defaults</code> or it can be manually set</p>
+                    </dd>
+                    <dt data-property-name="contextFrom" class="has-description">
+                      <span class="json-property-name">contextFrom:</span>
+                      <span class="json-property-type">
+                        <span class="">
+                          <a class="json-schema-ref" href="#/definitions/io.k8s.api.core.v1.SecretEnvSource">io.k8s.api.core.v1.SecretEnvSource</a>
+                        </span>
+                      </span>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </dt>
+                    <dd>
+                      <p>Reference to a secret representing where to deploy this entity Default is <code>seed-default-owprops</code> The secret must defines these fields: apihost (string) : The OpenWhisk host auth (string): the authorization key cert (string): the client certificate (optional) insecure (bool): Whether or not to bypass certificate checking (optional, default is false)</p>
+                    </dd>
+                    <dt data-property-name="feed" class="has-description">
+                      <span class="json-property-name">feed:</span>
+                      <span class="json-property-type">string</span>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </dt>
+                    <dd>
+                      <p>Name of the feed associated with the trigger</p>
+                    </dd>
+                    <dt data-property-name="name" class="has-description">
+                      <span class="json-property-name">name:</span>
+                      <span class="json-property-type">string</span>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </dt>
+                    <dd>
+                      <p>Trigger name. Override metadata.name.</p>
+                    </dd>
+                    <dt data-property-name="parameters" class="has-description">
+                      <span class="json-property-name">parameters:</span>
+                      <span class="json-property-type">
+                        <span class="json-schema-ref-array">
+                          <a class="json-schema-ref" href="#/definitions/keyvalue.v1.KeyValue">keyvalue.v1.KeyValue</a>
+                        </span>
+                      </span>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </dt>
+                    <dd>
+                      <p>List of key/value input parameters</p>
+                    </dd>
+                    <dt class="json-inner-schema">
+                      <section class="json-schema-array-items">
+                        <span class="json-property-type">
+                          <span class="">
+                            <a class="json-schema-ref" href="#/definitions/keyvalue.v1.KeyValue">keyvalue.v1.KeyValue</a>
+                          </span>
+                        </span>
+                        <span class="json-property-range" title="Value limits"></span>
+                        <div class="json-inner-schema"> </div>
+                      </section>
+                    </dt>
+                  </dl>
+                </section>
+              </div>
+              <div class="doc-examples">
+                <section>
+                  <h5>Example</h5>
+                  <!-- <div class="hljs"> -->
+                  <html>
+                  <head></head>
+                  <body><pre><code class="hljs language-yaml"><span class="hljs-attr">annotations:</span>
+<span class="hljs-attr">  - attributes:</span> <span class="hljs-string">object</span>
+<span class="hljs-attr">    name:</span> <span class="hljs-string">string</span>
+<span class="hljs-attr">    valueFrom:</span> <span class="hljs-string">{}</span>
+<span class="hljs-attr">context:</span>
+<span class="hljs-attr">  org:</span> <span class="hljs-string">string</span>
+<span class="hljs-attr">  region:</span> <span class="hljs-string">string</span>
+<span class="hljs-attr">  resourcegroup:</span> <span class="hljs-string">string</span>
+<span class="hljs-attr">  resourcelocation:</span> <span class="hljs-string">string</span>
+<span class="hljs-attr">  space:</span> <span class="hljs-string">string</span>
+<span class="hljs-attr">feed:</span> <span class="hljs-string">string</span>
+<span class="hljs-attr">name:</span> <span class="hljs-string">string</span>
+<span class="hljs-attr">parameters:</span>
+<span class="hljs-attr">  - attributes:</span> <span class="hljs-string">object</span>
+<span class="hljs-attr">    name:</span> <span class="hljs-string">string</span>
+<span class="hljs-attr">    valueFrom:</span> <span class="hljs-string">{}</span>
+</code></pre> </body>
+                  </html>
+                  <!-- </div> -->
+                </section>
+              </div>
+            </div>
+          </div>
+          <div id="definition-openwhisk.v1beta1.TriggerStatus" class="definition panel" data-traverse-target="definition-openwhisk.v1beta1.TriggerStatus">
+            <h2 class="panel-title">
+              <a name="/definitions/openwhisk.v1beta1.TriggerStatus"></a>openwhisk.v1beta1.TriggerStatus:
+              <!-- <span class="json-property-type"><span class="json-property-type">object</span>
+              <span class="json-property-range" title="Value limits"></span>
+              
+              
+              </span> -->
+            </h2>
+            <div class="doc-row">
+              <div class="doc-copy">
+                <section class="json-schema-description">
+                  <p>TriggerStatus defines the observed state of Trigger</p>
+                </section>
+                <section class="json-schema-properties">
+                  <dl>
+                    <dt data-property-name="generation" class="has-description">
+                      <span class="json-property-name">generation:</span>
+                      <span class="json-property-type">integer</span>
+                      <span class="json-property-format">(int64)</span>
+                      <span class="json-property-range" title="Value limits"></span>
+                      <span class="json-property-required"></span>
+                    </dt>
+                    <dd>
+                      <p>Last synced generation. Set by the system</p>
+                    </dd>
+                    <dt data-property-name="message">
+                      <span class="json-property-name">message:</span>
+                      <span class="json-property-type">string</span>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </dt>
+                    <dt data-property-name="state">
+                      <span class="json-property-name">state:</span>
+                      <span class="json-property-type">string</span>
+                      <span class="json-property-range" title="Value limits"></span>
+                    </dt>
+                  </dl>
+                </section>
+              </div>
+              <div class="doc-examples">
+                <section>
+                  <h5>Example</h5>
+                  <!-- <div class="hljs"> -->
+                  <html>
+                  <head></head>
+                  <body><pre><code class="hljs language-yaml"><span class="hljs-attr">generation:</span> <span class="hljs-string">integer</span> <span class="hljs-string">(int64)</span>
+<span class="hljs-attr">message:</span> <span class="hljs-string">string</span>
+<span class="hljs-attr">state:</span> <span class="hljs-string">string</span>
+</code></pre> </body>
+                  </html>
+                  <!-- </div> -->
+                </section>
+              </div>
+            </div>
+          </div>
+          <div class="doc-row no-margin">
+            <div class="doc-copy doc-separator">
+              <a class="powered-by" href="https://sourcey.com/spectacle">Documentation by
+                <span>Spectacle</span>
+              </a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </body>
+</html>

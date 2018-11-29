@@ -1,0 +1,9 @@
+apiVersion: openwhisk.seed.ibm.com/v1beta1
+kind: Invocation
+metadata:
+  name: echo-finalizer
+spec:
+  function: /whisk.system/utils/echo
+  finalizer:
+    function: echo-finalizer
+  

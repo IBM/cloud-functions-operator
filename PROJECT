@@ -1,0 +1,3 @@
+version: "1"
+domain: seed.ibm.com
+repo: github.com/ibm/openwhisk-controller

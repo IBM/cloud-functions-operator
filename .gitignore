@@ -1,0 +1,8 @@
+bin
+vendor
+.DS_Store
+dist
+_build
+.history
+old
+cover.out

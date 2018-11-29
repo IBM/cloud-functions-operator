@@ -1,0 +1,7 @@
+apiVersion: openwhisk.seed.ibm.com/v1beta1
+kind: Rule
+metadata:
+  name: location-update-rule
+spec:
+  trigger: location-update-trigger
+  function: rule-hello 
