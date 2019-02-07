@@ -47,7 +47,7 @@ By default the operators are installed in the `openwhisk-system` namespace and a
 
 ### Setting up OpenWhisk credentials
 
-By default, all operators look for OpenWhisk credentials in the `seed-default-owprops` secret:
+By default, all operators look for OpenWhisk credentials in the `seed-defaults-owprops` secret:
 
 [//]: #embed-code(test/e2e/wskprops-secrets.sh)
 ```sh
