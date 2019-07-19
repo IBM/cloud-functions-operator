@@ -1,4 +1,4 @@
-# Apache OpenWhisk Operators
+# IBM Cloud Functions Operator
 
 [![Build Status](https://travis-ci.org/IBM/cloud-functions-operator.svg?branch=master)](https://travis-ci.org/IBM/cloud-functions-operator)
 [![License](https://img.shields.io/badge/license-Apache--2.0-blue.svg)](http://www.apache.org/licenses/LICENSE-2.0)
@@ -22,7 +22,6 @@ This project provides a Kubernetes operator for managing [IBM Cloud Functions](h
 
 - A cluster running Kubernetes 1.11+
 - `kubectl` installed and configured.
-- [`kustomize`](https://github.com/kubernetes-sigs/kustomize) installed.
 
 ## Installing the operator
 
