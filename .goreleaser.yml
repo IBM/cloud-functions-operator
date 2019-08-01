@@ -24,7 +24,7 @@ changelog:
 release:
   github:
     owner: ibm
-    name: ibm-cloud-operator
+    name: cloud-functions-operator
 
   # If set to true, will not auto-publish the release.
   # Default is false.
