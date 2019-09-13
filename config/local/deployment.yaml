@@ -17,10 +17,8 @@ spec:
       containers:
       - command:
         - /root/manager
-        args:
-          - "-logtostderr=true"
-          - "-v=5"
         image: local/cloud-functions-operator
+        imagePullPolicy: IfNotPresent
         name: manager
         resources:
           limits:

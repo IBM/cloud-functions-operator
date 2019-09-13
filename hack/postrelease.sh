@@ -16,7 +16,7 @@
 #
 set -e
 
-ROOT=$(realpath $(dirname ${BASH_SOURCE})/..)
+ROOT=$PWD/$(dirname ${BASH_SOURCE})/..
 cd $ROOT
 
 source hack/latest_tag
@@ -39,9 +39,8 @@ git fetch --all
 git rebase upstream/master
 
 git checkout -b cloud-functions-operator-${TAG}
-git rebase master
 
-mkdir -p cloud-functions-operator
-cd cloud-functions-operator
+mkdir -p upstream-community-operators/cloud-functions-operator
+cd upstream-community-operators/cloud-functions-operator
 cp $ROOT/deploy/olm-catalog/v${TAG}/* .
 
