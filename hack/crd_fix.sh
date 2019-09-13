@@ -6,6 +6,7 @@ SCRIPTDIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
 
 sed -i.bak  "130s/type: object//" $SCRIPTDIR/../config/crds/ibmcloud_v1alpha1_function.yaml
 sed -i.bak  "100s/type: object//" $SCRIPTDIR/../config/crds/ibmcloud_v1alpha1_invocation.yaml
+sed -i.bak  "62s/type: object//" $SCRIPTDIR/../config/crds/ibmcloud_v1alpha1_invocation.yaml
 sed -i.bak  "46s/type: object//" $SCRIPTDIR/../config/crds/ibmcloud_v1alpha1_package.yaml
 sed -i.bak  "88s/type: object//" $SCRIPTDIR/../config/crds/ibmcloud_v1alpha1_trigger.yaml
 sed -i.bak  "5s/manager-rolebinding/cloud-functions-operator/" $SCRIPTDIR/../config/rbac/rbac_role_binding.yaml

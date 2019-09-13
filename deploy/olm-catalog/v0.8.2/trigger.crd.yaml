@@ -4,17 +4,18 @@ metadata:
   creationTimestamp: null
   labels:
     controller-tools.k8s.io: "1.0"
-  name: invocations.ibmcloud.ibm.com
+  name: triggers.ibmcloud.ibm.com
 spec:
   group: ibmcloud.ibm.com
   names:
-    kind: Invocation
-    plural: invocations
+    kind: Trigger
+    plural: triggers
   scope: Namespaced
   subresources:
     status: {}
   validation:
     openAPIV3Schema:
+      type: object
       properties:
         apiVersion:
           description: 'APIVersion defines the versioned schema of this representation
@@ -30,62 +31,8 @@ spec:
           type: object
         spec:
           properties:
-            contextFrom:
-              description: 'Reference to a secret representing where to deploy this
-                entity Default is `seed-default-owprops` The secret must defines these
-                fields: apihost (string) : The OpenWhisk host auth (string): the authorization
-                key cert (string):  the client certificate (optional) insecure (bool):  Whether
-                or not to bypass certificate checking (optional, default is false)'
-              type: object
-            finalizer:
-              description: Defines the function to invoke when this resource is deleted.
-              properties:
-                function:
-                  description: Function defines the name of the function to invoke
-                    (eg. `/whisk.system/utils/echo` or `myfunction`) Invokes the function
-                    in the invocation context when the name is not fully qualified
-                  type: string
-                parameters:
-                  description: Parameters defines the list of parameters to use for
-                    the invocation
-                  items:
-                    properties:
-                      attributes:
-                        description: A parameter may have attributes (e.g. message
-                          hub topic might have partitions)
-                        type: object
-                      name:
-                        description: Name representing the key.
-                        type: string
-                      value:
-                        description: Defaults to null.
-                        
-                      valueFrom:
-                        description: Source for the value. Cannot be used if value
-                          is not empty.
-                        properties:
-                          configMapKeyRef:
-                            description: Selects a key of a ConfigMap.
-                            type: object
-                          secretKeyRef:
-                            description: Selects a key of a secret in the resource
-                              namespace
-                            type: object
-                        type: object
-                    required:
-                    - name
-                    type: object
-                  type: array
-              required:
-              - function
-              type: object
-            function:
-              description: defines the name of function to invoke (eg. `/whisk.system/utils/echo`
-                or `myfunction`) Invokes the function in the invocation context when
-                the name is not fully qualified
-              type: string
-            parameters:
-              description: Defines the list of parameters to use for the invocation
+            annotations:
+              description: List of key/value annotations
               items:
                 properties:
                   attributes:
@@ -97,7 +44,7 @@ spec:
                     type: string
                   value:
                     description: Defaults to null.
-                    
+                    type: object
                   valueFrom:
                     description: Source for the value. Cannot be used if value is
                       not empty.
@@ -113,23 +60,48 @@ spec:
                 - name
                 type: object
               type: array
-            to:
-              description: Defines where to store the invocation result. Discard the
-                result when not specified.
-              properties:
-                configMapKeyRef:
-                  description: Selects a key of a ConfigMap.
-                  type: object
-                projection:
-                  description: 'JSONPath template selecting parts of the invocation
-                    result to store. Default is "{@.response.result}" More info: https://kubernetes.io/docs/reference/kubectl/jsonpath/'
-                  type: string
-                secretKeyRef:
-                  description: Selects a key of a secret in the invocation namespace
-                  type: object
+            contextFrom:
+              description: 'Reference to a secret representing where to deploy this
+                entity Default is `seed-default-owprops` The secret must defines these
+                fields: apihost (string) : The OpenWhisk host auth (string): the authorization
+                key cert (string):  the client certificate (optional) insecure (bool):  Whether
+                or not to bypass certificate checking (optional, default is false)'
               type: object
-          required:
-          - function
+            feed:
+              description: Name of the feed associated with the trigger
+              type: string
+            name:
+              description: Trigger name. Override metadata.name.
+              type: string
+            parameters:
+              description: List of key/value input parameters
+              items:
+                properties:
+                  attributes:
+                    description: A parameter may have attributes (e.g. message hub
+                      topic might have partitions)
+                    type: object
+                  name:
+                    description: Name representing the key.
+                    type: string
+                  value:
+                    description: Defaults to null.
+
+                  valueFrom:
+                    description: Source for the value. Cannot be used if value is
+                      not empty.
+                    properties:
+                      configMapKeyRef:
+                        description: Selects a key of a ConfigMap.
+                        type: object
+                      secretKeyRef:
+                        description: Selects a key of a secret in the resource namespace
+                        type: object
+                    type: object
+                required:
+                - name
+                type: object
+              type: array
           type: object
         status:
           properties:

@@ -39,7 +39,7 @@ fi
 
 # this is needed for kube > 1.11
 echo "installing crictl"
-curl -OL https://github.com/kubernetes-sigs/cri-tools/releases/download/${KUBE_VERSION}/crictl-${KUBE_VERSION}-linux-amd64.tar.gz 
+curl -OL https://github.com/kubernetes-sigs/cri-tools/releases/download/${KUBE_VERSION}/crictl-${KUBE_VERSION}-linux-amd64.tar.gz
 sudo tar zxvf crictl-${KUBE_VERSION}-linux-amd64.tar.gz -C /usr/local/bin
 rm -f crictl-${KUBE_VERSION}-linux-amd64.tar.gz
 
@@ -55,9 +55,9 @@ echo "update context"
 # minikube update-context
 
 echo "waiting minikube to be ready"
-JSONPATH='{range .items[*]}{@.metadata.name}:{range @.status.conditions[*]}{@.type}={@.status};{end}{end}'; 
+JSONPATH='{range .items[*]}{@.metadata.name}:{range @.status.conditions[*]}{@.type}={@.status};{end}{end}';
 
-until kubectl get nodes -o jsonpath="$JSONPATH" 2>&1 | grep -q "Ready=True"; 
-do 
-  sleep 1; 
+until kubectl get nodes -o jsonpath="$JSONPATH" 2>&1 | grep -q "Ready=True";
+do
+  sleep 1;
 done

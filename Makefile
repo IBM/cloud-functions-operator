@@ -1,6 +1,6 @@
 
 # Image URL to use all building/pushing image targets
-IMG ?= ibmcom/openwhisk-operator:latest
+IMG ?= cloudoperators/cloud-functions-operator:latest
 LOG_LEVEL ?= 0
 
 all: test manager

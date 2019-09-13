@@ -17,29 +17,37 @@
 set -e
 
 function cleanup() {
+  local errorcode="$1"
   set +e
 
   if [[ -n "$TEST_CLUSTER" ]]; then
     kind delete cluster --name ${TEST_CLUSTER}
     unset TEST_CLUSTER
   fi
+
+  exit $errorcode
 }
 
 function traperr() {
   echo "ERROR: ${BASH_SOURCE[1]} at about ${BASH_LINENO[0]}"
-  cleanup
+  cleanup 1
 }
 
 set -o errtrace
 trap traperr ERR
 trap traperr INT
 
-ROOT=$(realpath $(dirname ${BASH_SOURCE})/..)
+ROOT=$(dirname ${BASH_SOURCE})/..
 cd $ROOT
+
+if [[ $QUAY_TOKEN == "" ]]; then
+  echo "missing QUAY_TOKEN. More information: https://github.com/operator-framework/community-operators/blob/master/docs/testing-operators.md#quay-login"
+  exit 1
+fi
 
 TAG=$1
 if [[ $TAG == "" ]]; then
-  echo "usage: prerelease.sh <tag>"
+  echo "usage: prerelease.sh <tag> <quay_namespace>"
   exit 1
 fi
 
@@ -48,21 +56,101 @@ if [[ ${TAG:0:1} != "v" ]]; then
   exit 1
 fi
 
-echo "Building and pushing latest docker image"
-make docker-build docker-push
+QUAY_NAMESPACE=$2
+if [[ $QUAY_NAMESPACE == "" ]]; then
+  echo "missing quay_namespace. usage: prerelease.sh <tag> <quay_namespace>. More information: https://github.com/operator-framework/community-operators/blob/master/docs/testing-operators.md#push-to-quayio"
+  exit 1
+fi
 
 echo "Creating OLM catalog"
 ./hack/package.py $TAG
 
-# TODO: needs quay
-# echo "Validating OLM catalog"
-source hack/latest_tag
-# operator-courier verify deploy/olm-catalog/v${TAG}/cloud-functions-operator.v${TAG}.clusterserviceversion.yaml
+source hack/latest_tag # trim 'v'
 
-echo "Running scorecard"
+IMG=cloudoperators/cloud-functions-operator:${TAG}
+
+echo "Building and pushing candidate docker image"
+docker build . -t ${IMG}
+docker push ${IMG}
+
+OPERATOR_DIR=deploy/olm-catalog/v${TAG}/
+PACKAGE_NAME=cloud-functions-operator
+PACKAGE_VERSION=$TAG
+
+echo "Linting OLM catalog"
+operator-courier verify --ui_validate_io $OPERATOR_DIR
+
+echo "Pushing operator to quay.io"
+operator-courier push "$OPERATOR_DIR" "$QUAY_NAMESPACE" "$PACKAGE_NAME" "$PACKAGE_VERSION" "$QUAY_TOKEN"
+
+echo "Starting k8s cluster"
 kind create cluster --name olm
 export KUBECONFIG="$(kind get kubeconfig-path --name="olm")"
 TEST_CLUSTER=olm
-operator-sdk scorecard --csv-path "deploy/olm-catalog/v${TAG}/cloud-functions-operator.v${TAG}.clusterserviceversion.yaml"
 
-cleanup
+echo "Installing OLM"
+kubectl apply -f https://github.com/operator-framework/operator-lifecycle-manager/releases/download/0.10.0/crds.yaml
+kubectl apply -f https://github.com/operator-framework/operator-lifecycle-manager/releases/download/0.10.0/olm.yaml
+
+echo "Installing the Operator Marketplace"
+tmp_dir=$(mktemp -d)
+pushd $tmp_dir
+git clone --depth 1 https://github.com/operator-framework/operator-marketplace.git
+kubectl apply -f operator-marketplace/deploy/upstream/
+popd
+
+echo "Creating the OperatorSource"
+
+cat <<EOF | kubectl create -f -
+apiVersion: operators.coreos.com/v1
+kind: OperatorSource
+metadata:
+  name: ${QUAY_NAMESPACE}-operators
+  namespace: marketplace
+spec:
+  type: appregistry
+  endpoint: https://quay.io/cnr
+  registryNamespace: ${QUAY_NAMESPACE}
+EOF
+
+kubectl get operatorsource ${QUAY_NAMESPACE}-operators -n marketplace
+
+echo "Creating an OperatorGroup"
+cat <<EOF | kubectl create -f -
+apiVersion: operators.coreos.com/v1alpha2
+kind: OperatorGroup
+metadata:
+  name: ${PACKAGE_NAME}group
+  namespace: marketplace
+spec:
+  targetNamespaces: []
+EOF
+
+echo "Creating a Subscription"
+
+cat <<EOF | kubectl create -f -
+apiVersion: operators.coreos.com/v1alpha1
+kind: Subscription
+metadata:
+  name: ${PACKAGE_NAME}-subscription
+  namespace: marketplace
+spec:
+  channel: alpha
+  name: ${PACKAGE_NAME}
+  source: ${QUAY_NAMESPACE}-operators
+  sourceNamespace: marketplace
+EOF
+
+echo "Wait for CSV to be healthy"
+
+for i in {0..20}; do
+  if [ "$(kubectl get clusterserviceversion -n marketplace cloud-functions-operator.v${TAG} -o=jsonpath='{.status.phase}')" == "Succeeded" ]; then
+    break
+  fi
+  sleep 3
+done
+
+echo "Running scorecard"
+operator-sdk scorecard --namespace marketplace --olm-deployed --crds-dir ${OPERATOR_DIR} --csv-path "${OPERATOR_DIR}cloud-functions-operator.v${TAG}.clusterserviceversion.yaml"
+
+cleanup 0

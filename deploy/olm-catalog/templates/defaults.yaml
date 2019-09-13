@@ -3,7 +3,7 @@
 operator_name: cloud-functions-operator
 channel_name: alpha
 maturity: alpha
-image: ibmcom/openwhisk-operator
+image: cloudoperators/cloud-functions-operator
 description: |
   This operator allows you to manage [IBM Cloud Functions](https://cloud.ibm.com/functions) entities,
   such as Actions, Packages, Rules and Triggers.
@@ -98,7 +98,7 @@ crd:
         version: v1alpha1
     specDescriptors:
     statusDescriptors:
-  - kind: Trigger
+  - kind: Rule
     description: Represent a Rule
     resources:
       - kind: Secret
