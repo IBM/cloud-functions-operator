@@ -6,7 +6,7 @@ import (
 	"testing"
 	"time"
 
-	"k8s.io/api/core/v1"
+	v1 "k8s.io/api/core/v1"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	"k8s.io/apimachinery/pkg/types"
 	"k8s.io/client-go/kubernetes/scheme"
@@ -28,6 +28,7 @@ import (
 
 	"github.com/ibm/cloud-functions-operator/pkg/apis"
 	ow "github.com/ibm/cloud-functions-operator/pkg/controller/common"
+	"github.com/ibm/cloud-functions-operator/pkg/controller/function"
 	owpkg "github.com/ibm/cloud-functions-operator/pkg/controller/pkg"
 	owtest "github.com/ibm/cloud-functions-operator/test"
 )
@@ -54,7 +55,7 @@ var _ = BeforeSuite(func() {
 	logf.SetLogger(logf.ZapLoggerTo(GinkgoWriter, true))
 
 	t = &envtest.Environment{
-		CRDDirectoryPaths:        []string{filepath.Join("..", "..", "..", "config", "crds")},
+		CRDDirectoryPaths:        []string{filepath.Join("..", "..", "config", "crds")},
 		ControlPlaneStartTimeout: 2 * time.Minute,
 	}
 	apis.AddToScheme(scheme.Scheme)
@@ -69,8 +70,7 @@ var _ = BeforeSuite(func() {
 
 	c = mgr.GetClient()
 
-	recFn := newReconciler(mgr)
-	Expect(add(mgr, recFn)).NotTo(HaveOccurred())
+	Expect(function.Add(mgr)).NotTo(HaveOccurred())
 	Expect(owpkg.Add(mgr)).NotTo(HaveOccurred())
 
 	stop = owtest.StartTestManager(mgr)
